@@ -104,7 +104,8 @@
   var loggedIn = !!(claims && claims.exp && claims.exp * 1000 > Date.now());
   if (!loggedIn) return;
   var first = String(claims.name || claims.email || 'Account').split(' ')[0];
-  document.querySelectorAll('a[href="app.html"]').forEach(function (a) {
-    a.textContent = a.classList.contains('btn') ? 'Dashboard' : ('Hi, ' + first);
-  });
+  var greeting = document.getElementById('navGreeting');
+  var cta = document.getElementById('navCta');
+  if (greeting) { greeting.textContent = 'Hi, ' + first; greeting.hidden = false; }
+  if (cta) cta.textContent = 'Dashboard';
 })();
