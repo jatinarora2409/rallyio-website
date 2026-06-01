@@ -43,8 +43,25 @@
     var av = $('avatar');
     if (d.picture) { av.src = d.picture; av.style.display = ''; } else { av.style.display = 'none'; }
     $('credits').textContent = '$' + Number(d.credits_usd || 0).toFixed(2);
+    if (d.payments_enabled) $('buyBox').hidden = false;
     show('dashboard');
     loadUsage();
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('paid')) {
+      if ($('buyNote')) $('buyNote').textContent = 'Payment received — adding your credits…';
+      window.history.replaceState({}, '', window.location.pathname);
+      setTimeout(refreshBalance, 2500);  // webhook credits asynchronously
+    } else if (params.get('canceled')) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }
+
+  function refreshBalance() {
+    api('/me').then(function (d) {
+      $('credits').textContent = '$' + Number(d.credits_usd || 0).toFixed(2);
+      if ($('buyNote')) $('buyNote').textContent = 'Pay by card — $1 = $1 of credits.';
+    }).catch(function () {});
   }
 
   // ---- Usage history ----
@@ -135,6 +152,25 @@
       navigator.clipboard && navigator.clipboard.writeText(v);
       this.textContent = 'Copied';
       var self = this; setTimeout(function () { self.textContent = 'Copy'; }, 1500);
+    });
+  }
+
+  // ---- Buy credits (Stripe Checkout) ----
+  var buyBtn = $('buyBtn');
+  if (buyBtn) {
+    buyBtn.addEventListener('click', function () {
+      var amt = parseFloat($('buyAmount').value);
+      if (!amt || amt < 1) { $('buyNote').textContent = 'Enter an amount of at least $1.'; return; }
+      buyBtn.disabled = true;
+      $('buyNote').textContent = 'Redirecting to secure checkout…';
+      api('/me/checkout', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount_usd: amt })
+      })
+        .then(function (d) { if (d.url) { window.location.href = d.url; } else { throw new Error('No checkout URL'); } })
+        .catch(function (e) {
+          if (e.message !== 'unauthorized') { $('buyNote').textContent = e.message; buyBtn.disabled = false; }
+        });
     });
   }
 
