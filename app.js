@@ -1,7 +1,7 @@
 // rallyio account dashboard — Google Sign-In + credits + API keys.
 (function () {
   // Public OAuth Web client ID (set after creating it in the GCP console).
-  var GOOGLE_CLIENT_ID = '__GOOGLE_CLIENT_ID__';
+  var GOOGLE_CLIENT_ID = '491899586229-g8ot55ojq6oqnkda9cvqg47bc7uene3h.apps.googleusercontent.com';
   var API_BASE = 'https://rallyio-hfr-bmurezb4na-uc.a.run.app';
   var TOKEN_KEY = 'rallyio_gtoken';
 
