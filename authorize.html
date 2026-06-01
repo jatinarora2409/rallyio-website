@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rallyio — authorize</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' rx='8' fill='%232F80FF'/&gt;&lt;circle cx='16' cy='16' r='6' fill='white'/&gt;&lt;/svg&gt;" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">rally<span>io</span></span></a>
+    </div>
+  </header>
+
+  <main class="app">
+    <div class="container app__inner" style="max-width:560px">
+      <section class="app-card">
+        <span class="eyebrow">Connect</span>
+        <h1>Authorize rallyio</h1>
+        <p class="app-card__lead">
+          Sign in with Google to connect rallyio to your assistant. Your research
+          credits and reads will be linked to this account.
+        </p>
+        <div id="gsiButton" class="gsi-wrap"></div>
+        <p id="status" class="app-note"></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="authorize.js"></script>
+</body>
+</html>
