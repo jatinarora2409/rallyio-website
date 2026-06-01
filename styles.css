@@ -238,8 +238,51 @@ a { color: inherit; text-decoration: none; }
 .catalog-card__rate span { color: var(--muted); font-size: .85rem; }
 .catalog-card__rate strong { color: var(--ink); font-size: 1.05rem; font-weight: 700; }
 
+/* ---------- Account app ---------- */
+.app { min-height: 60vh; padding: 56px 0 80px; background: linear-gradient(180deg, var(--blue-50), #fff 60%); }
+.app__inner { max-width: 880px; }
+.app-card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); padding: 40px; text-align: center;
+}
+.app-card h1 { font-size: 2rem; margin: 6px 0 0; }
+.app-card__lead { color: var(--muted); margin: 14px auto 26px; max-width: 440px; }
+.gsi-wrap { display: flex; justify-content: center; min-height: 44px; }
+.app-note { color: var(--muted); font-size: .9rem; margin-top: 18px; min-height: 1em; }
+.app-loading { color: var(--muted); padding: 30px 0; }
+
+.app-dash__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; gap: 16px; }
+.app-user { display: flex; align-items: center; gap: 14px; }
+.app-user__avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--blue-100); object-fit: cover; }
+.app-user__name { font-weight: 700; }
+.app-user__email { color: var(--muted); font-size: .9rem; }
+
+.app-grid { display: grid; grid-template-columns: 320px 1fr; gap: 22px; align-items: start; text-align: left; }
+.app-balance { text-align: left; padding: 30px; }
+.app-balance__label { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--blue-600); font-weight: 600; }
+.app-balance__value { font-size: 2.8rem; font-weight: 800; letter-spacing: -.02em; margin: 8px 0 4px; }
+.app-balance__hint { color: var(--muted); font-size: .85rem; }
+.app-keys { text-align: left; padding: 30px; }
+.app-keys__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.app-keys__head h2 { font-size: 1.2rem; }
+.app-keys__lead { color: var(--muted); font-size: .9rem; margin: 8px 0 18px; }
+.app-keys code, .new-key code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.key-list { display: flex; flex-direction: column; gap: 10px; }
+.key-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--blue-50); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+}
+.key-row code { font-weight: 700; color: var(--ink); }
+.key-meta { color: var(--muted); font-size: .82rem; }
+.key-empty { color: var(--muted); font-size: .9rem; }
+.new-key { margin-top: 18px; padding: 16px; border: 1.5px dashed var(--blue-200); border-radius: 12px; background: var(--blue-50); }
+.new-key__label { font-size: .85rem; color: var(--blue-600); font-weight: 600; margin-bottom: 8px; }
+.new-key__row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.new-key__row code { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: 700; color: var(--ink); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
+  .app-grid { grid-template-columns: 1fr; }
   .cards--3 { grid-template-columns: 1fr; }
   .cards--2 { grid-template-columns: 1fr; }
   .split, .split--reverse { grid-template-columns: 1fr; gap: 32px; }

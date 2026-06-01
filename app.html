@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rallyio — sign in</title>
+  <meta name="description" content="Sign in to rallyio to see your research credits and generate an API key." />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' rx='8' fill='%232F80FF'/&gt;&lt;circle cx='16' cy='16' r='6' fill='white'/&gt;&lt;/svg&gt;" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="rallyio home">
+        <span class="brand__dot"></span>
+        <span class="brand__name">rally<span>io</span></span>
+      </a>
+      <nav class="nav__links">
+        <a href="index.html#catalogs">Catalogs</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html">← Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app">
+    <div class="container app__inner">
+
+      <!-- Signed-out -->
+      <section id="signedOut" class="app-card" hidden>
+        <span class="eyebrow">Your account</span>
+        <h1>Sign in to rallyio</h1>
+        <p class="app-card__lead">
+          Sign in with Google to see your research credits and generate an API key
+          you can use to read data.
+        </p>
+        <div id="gsiButton" class="gsi-wrap"></div>
+        <p id="authNote" class="app-note"></p>
+      </section>
+
+      <!-- Loading -->
+      <section id="loading" class="app-card">
+        <p class="app-loading">Loading…</p>
+      </section>
+
+      <!-- Signed-in dashboard -->
+      <section id="dashboard" class="app-dash" hidden>
+        <div class="app-dash__head">
+          <div class="app-user">
+            <img id="avatar" class="app-user__avatar" alt="" />
+            <div>
+              <div id="userName" class="app-user__name"></div>
+              <div id="userEmail" class="app-user__email"></div>
+            </div>
+          </div>
+          <button id="signOut" class="btn btn--ghost btn--sm">Sign out</button>
+        </div>
+
+        <div class="app-grid">
+          <div class="app-card app-balance">
+            <span class="app-balance__label">Research credits</span>
+            <div id="credits" class="app-balance__value">$0.00</div>
+            <p class="app-balance__hint">Spent per record you read. Top-ups coming soon.</p>
+          </div>
+
+          <div class="app-card app-keys">
+            <div class="app-keys__head">
+              <h2>API keys</h2>
+              <button id="genKey" class="btn btn--primary btn--sm">Generate key</button>
+            </div>
+            <p class="app-keys__lead">Use a key as your <code>credit_code</code> when reading data. It draws from your account credits.</p>
+            <div id="keyList" class="key-list"></div>
+            <div id="newKey" class="new-key" hidden>
+              <p class="new-key__label">New key — copy it now:</p>
+              <div class="new-key__row">
+                <code id="newKeyValue"></code>
+                <button id="copyKey" class="btn btn--ghost btn--sm">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="brand"><span class="brand__dot"></span><span class="brand__name">rally<span>io</span></span></div>
+      <a class="footer__mail" href="mailto:rallyioai@gmail.com">rallyioai@gmail.com</a>
+      <p class="footer__copy">© <span id="year">2026</span> rallyio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
