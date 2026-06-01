@@ -88,3 +88,23 @@
     })
     .catch(function () { render(FALLBACK, false); });
 })();
+
+// Reflect signed-in state in the nav (so "Sign in" becomes "Dashboard" when logged in).
+(function () {
+  var TOKEN_KEY = 'rallyio_gtoken';
+  function decodeJwt(t) {
+    try {
+      var p = t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      return JSON.parse(decodeURIComponent(escape(atob(p))));
+    } catch (e) { return null; }
+  }
+  var tok = null;
+  try { tok = localStorage.getItem(TOKEN_KEY); } catch (e) {}
+  var claims = tok ? decodeJwt(tok) : null;
+  var loggedIn = !!(claims && claims.exp && claims.exp * 1000 > Date.now());
+  if (!loggedIn) return;
+  var first = String(claims.name || claims.email || 'Account').split(' ')[0];
+  document.querySelectorAll('a[href="app.html"]').forEach(function (a) {
+    a.textContent = a.classList.contains('btn') ? 'Dashboard' : ('Hi, ' + first);
+  });
+})();

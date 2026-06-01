@@ -20,7 +20,7 @@
     });
   }
   function mask(k) { return k.length > 12 ? esc(k.slice(0, 7)) + '…' + esc(k.slice(-4)) : esc(k); }
-  function token() { return sessionStorage.getItem(TOKEN_KEY) || ''; }
+  function token() { return localStorage.getItem(TOKEN_KEY) || ''; }
 
   // ---- API ----
   function api(path, opts) {
@@ -106,7 +106,7 @@
 
   // ---- Auth ----
   function onCredential(resp) {
-    sessionStorage.setItem(TOKEN_KEY, resp.credential);
+    localStorage.setItem(TOKEN_KEY, resp.credential);
     show('loading');
     api('/auth/google', {
       method: 'POST',
@@ -118,7 +118,7 @@
   }
 
   function signOut(note) {
-    sessionStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_KEY);
     try { if (window.google) google.accounts.id.disableAutoSelect(); } catch (e) {}
     $('authNote').textContent = note || '';
     show('signedOut');
