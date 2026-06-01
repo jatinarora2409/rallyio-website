@@ -45,6 +45,7 @@
     $('credits').textContent = '$' + Number(d.credits_usd || 0).toFixed(2);
     renderKeys(d.keys || []);
     show('dashboard');
+    loadUsage();
   }
 
   function renderKeys(keys) {
@@ -54,12 +55,53 @@
       return;
     }
     list.innerHTML = keys.map(function (k) {
-      return '<div class="key-row">' +
+      var action = k.active
+        ? '<button class="key-revoke" data-key="' + esc(k.api_key) + '">Revoke</button>'
+        : '<span class="key-revoked">revoked</span>';
+      return '<div class="key-row' + (k.active ? '' : ' key-row--off') + '">' +
         '<code>' + mask(k.api_key) + '</code>' +
         '<span class="key-meta">' + (k.label ? esc(k.label) + ' · ' : '') +
         (k.active ? 'active' : 'inactive') + '</span>' +
+        action +
         '</div>';
     }).join('');
+  }
+
+  // ---- Usage history ----
+  function toolLabel(t) {
+    return t === 'structured_catalog_search' ? 'read'
+      : t === 'federated_entity_lookup' ? 'lookup' : (t || '');
+  }
+  function fmtTime(s) {
+    if (!s) return '';
+    var d = new Date(String(s).replace(' ', 'T') + 'Z');
+    return isNaN(d) ? s : d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+  function loadUsage() {
+    var list = $('usageList');
+    list.innerHTML = '<p class="usage-empty">Loading…</p>';
+    api('/me/usage')
+      .then(function (d) { renderUsage(d.usage || []); })
+      .catch(function (e) { if (e.message !== 'unauthorized') list.innerHTML = '<p class="usage-empty">Couldn\'t load usage.</p>'; });
+  }
+  function renderUsage(rows) {
+    var list = $('usageList');
+    if (!rows.length) {
+      list.innerHTML = '<p class="usage-empty">No reads yet. Use a key as your <code>credit_code</code> to read data.</p>';
+      return;
+    }
+    list.innerHTML =
+      '<div class="usage-row usage-row--head"><span>When</span><span>Action</span><span>Catalog</span><span>Charge</span><span>Balance</span></div>' +
+      rows.map(function (r) {
+        var amt = Math.abs(Number(r.amount) || 0).toFixed(2);
+        return '<div class="usage-row">' +
+          '<span>' + esc(fmtTime(r.at)) + '</span>' +
+          '<span>' + esc(toolLabel(r.tool)) + '</span>' +
+          '<span class="usage-cat">' + esc(r.catalog_id || '—') + '</span>' +
+          '<span class="usage-amt">−$' + amt + '</span>' +
+          '<span>$' + (Number(r.balance_after) || 0).toFixed(2) + '</span>' +
+          '</div>';
+      }).join('');
   }
 
   // ---- Auth ----
@@ -125,6 +167,22 @@
     this.textContent = 'Copied';
     var self = this; setTimeout(function () { self.textContent = 'Copy'; }, 1500);
   });
+
+  // Revoke a key (event-delegated on the key list)
+  $('keyList').addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.key-revoke');
+    if (!btn) return;
+    if (!window.confirm('Revoke this key? Anything using it will stop working immediately.')) return;
+    btn.disabled = true;
+    api('/me/keys/revoke', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: btn.getAttribute('data-key') })
+    })
+      .then(function (d) { renderKeys(d.keys || []); })
+      .catch(function (e) { if (e.message !== 'unauthorized') alert(e.message); });
+  });
+
+  $('refreshUsage').addEventListener('click', loadUsage);
 
   $('signOut').addEventListener('click', function () { signOut(''); });
 
