@@ -212,6 +212,32 @@ a { color: inherit; text-decoration: none; }
 .footer__mail { color: var(--blue-600); font-weight: 600; }
 .footer__copy { color: var(--muted); font-size: .85rem; margin-top: 6px; }
 
+/* ---------- Catalog cards (dynamic) ---------- */
+.catalog-loading { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 24px 0; }
+.catalog-note { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 22px; }
+.catalog-card { display: flex; flex-direction: column; }
+.catalog-card__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.catalog-card__head h3 { font-size: 1.1rem; margin: 0; }
+.catalog-card p { flex: 1; font-size: .95rem; margin-bottom: 16px; }
+.catalog-card--test { background: linear-gradient(180deg, #fff, var(--blue-50)); }
+.badge {
+  flex-shrink: 0; font-size: .64rem; font-weight: 800; letter-spacing: .05em;
+  text-transform: uppercase; padding: 4px 9px; border-radius: 999px;
+}
+.badge--live { background: #E6F8EE; color: #1A9E55; }
+.badge--test { background: #FFF1E6; color: #C2691A; }
+.catalog-pill {
+  align-self: flex-start; font-size: .74rem; font-weight: 600;
+  color: var(--blue-600); background: var(--blue-100);
+  padding: 4px 11px; border-radius: 999px; margin-bottom: 14px; text-transform: capitalize;
+}
+.catalog-card__rate {
+  display: flex; align-items: baseline; justify-content: space-between;
+  border-top: 1px solid var(--line); padding-top: 14px; margin-top: auto;
+}
+.catalog-card__rate span { color: var(--muted); font-size: .85rem; }
+.catalog-card__rate strong { color: var(--ink); font-size: 1.05rem; font-weight: 700; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .cards--3 { grid-template-columns: 1fr; }
