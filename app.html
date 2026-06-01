@@ -69,20 +69,15 @@
             <p class="app-balance__hint">Spent per record you read. Top-ups coming soon.</p>
           </div>
 
-          <div class="app-card app-keys">
-            <div class="app-keys__head">
-              <h2>API keys</h2>
-              <button id="genKey" class="btn btn--primary btn--sm">Generate key</button>
+          <div class="app-card app-connect">
+            <h2>Connect to Claude</h2>
+            <p class="app-connect__lead">Add this connector in Claude, sign in with Google once, and your
+               searches bill this account automatically — no key needed.</p>
+            <div class="connect-url">
+              <code id="connectUrl">https://rallyio-hfr-bmurezb4na-uc.a.run.app/connect/mcp</code>
+              <button id="copyConnect" class="btn btn--ghost btn--sm">Copy</button>
             </div>
-            <p class="app-keys__lead">Use a key as your <code>credit_code</code> when reading data. It draws from your account credits.</p>
-            <div id="keyList" class="key-list"></div>
-            <div id="newKey" class="new-key" hidden>
-              <p class="new-key__label">New key — copy it now:</p>
-              <div class="new-key__row">
-                <code id="newKeyValue"></code>
-                <button id="copyKey" class="btn btn--ghost btn--sm">Copy</button>
-              </div>
-            </div>
+            <p class="app-connect__hint">Claude → Settings → Connectors → Add custom connector → paste the URL.</p>
           </div>
         </div>
 

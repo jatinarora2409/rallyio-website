@@ -43,28 +43,8 @@
     var av = $('avatar');
     if (d.picture) { av.src = d.picture; av.style.display = ''; } else { av.style.display = 'none'; }
     $('credits').textContent = '$' + Number(d.credits_usd || 0).toFixed(2);
-    renderKeys(d.keys || []);
     show('dashboard');
     loadUsage();
-  }
-
-  function renderKeys(keys) {
-    var list = $('keyList');
-    if (!keys.length) {
-      list.innerHTML = '<p class="key-empty">No keys yet. Generate one to start reading data.</p>';
-      return;
-    }
-    list.innerHTML = keys.map(function (k) {
-      var action = k.active
-        ? '<button class="key-revoke" data-key="' + esc(k.api_key) + '">Revoke</button>'
-        : '<span class="key-revoked">revoked</span>';
-      return '<div class="key-row' + (k.active ? '' : ' key-row--off') + '">' +
-        '<code>' + mask(k.api_key) + '</code>' +
-        '<span class="key-meta">' + (k.label ? esc(k.label) + ' · ' : '') +
-        (k.active ? 'active' : 'inactive') + '</span>' +
-        action +
-        '</div>';
-    }).join('');
   }
 
   // ---- Usage history ----
@@ -87,7 +67,7 @@
   function renderUsage(rows) {
     var list = $('usageList');
     if (!rows.length) {
-      list.innerHTML = '<p class="usage-empty">No reads yet. Use a key as your <code>credit_code</code> to read data.</p>';
+      list.innerHTML = '<p class="usage-empty">No reads yet. Connect rallyio in Claude and run a search.</p>';
       return;
     }
     list.innerHTML =
@@ -147,40 +127,16 @@
     }, 100);
   }
 
-  // ---- Generate key ----
-  $('genKey').addEventListener('click', function () {
-    var btn = this; btn.disabled = true;
-    api('/me/keys', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })
-      .then(function (d) {
-        $('newKeyValue').textContent = d.api_key;
-        $('newKey').hidden = false;
-        $('credits').textContent = '$' + Number(d.credits_usd || 0).toFixed(2);
-        renderKeys(d.keys || []);
-      })
-      .catch(function (e) { if (e.message !== 'unauthorized') alert(e.message); })
-      .then(function () { btn.disabled = false; });
-  });
-
-  $('copyKey').addEventListener('click', function () {
-    var v = $('newKeyValue').textContent;
-    navigator.clipboard && navigator.clipboard.writeText(v);
-    this.textContent = 'Copied';
-    var self = this; setTimeout(function () { self.textContent = 'Copy'; }, 1500);
-  });
-
-  // Revoke a key (event-delegated on the key list)
-  $('keyList').addEventListener('click', function (e) {
-    var btn = e.target.closest && e.target.closest('.key-revoke');
-    if (!btn) return;
-    if (!window.confirm('Revoke this key? Anything using it will stop working immediately.')) return;
-    btn.disabled = true;
-    api('/me/keys/revoke', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ api_key: btn.getAttribute('data-key') })
-    })
-      .then(function (d) { renderKeys(d.keys || []); })
-      .catch(function (e) { if (e.message !== 'unauthorized') alert(e.message); });
-  });
+  // ---- Copy the connector URL ----
+  var copyConnect = $('copyConnect');
+  if (copyConnect) {
+    copyConnect.addEventListener('click', function () {
+      var v = $('connectUrl').textContent.trim();
+      navigator.clipboard && navigator.clipboard.writeText(v);
+      this.textContent = 'Copied';
+      var self = this; setTimeout(function () { self.textContent = 'Copy'; }, 1500);
+    });
+  }
 
   $('refreshUsage').addEventListener('click', loadUsage);
 
