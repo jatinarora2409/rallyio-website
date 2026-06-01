@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rallyio — the marketplace for data worth paying for</title>
+  <meta name="description" content="rallyio lets data owners list their data for the world to use and get paid every time it's used. Explore catalogs for free and pay only for the data you read." />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' rx='8' fill='%232F80FF'/&gt;&lt;circle cx='16' cy='16' r='6' fill='white'/&gt;&lt;/svg&gt;" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="rallyio home">
+        <span class="brand__dot"></span>
+        <span class="brand__name">rally<span>io</span></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#how">How it works</a>
+        <a href="#providers">For data owners</a>
+        <a href="#users">For users</a>
+        <a href="#coupon">Get a code</a>
+      </nav>
+
+      <div class="nav__cta">
+        <a class="btn btn--primary btn--sm" href="mailto:rallyioai@gmail.com?subject=Request%20a%20rallyio%20coupon%20code&amp;body=Hi%20rallyio%20team%2C%0A%0AI'd%20like%20a%20coupon%20code%20to%20explore%20the%20catalogs.%0A%0AThanks!">Get a coupon</a>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow">The data marketplace</span>
+      <h1 class="hero__title">The marketplace for data<br /><span class="grad">worth paying for.</span></h1>
+      <p class="hero__sub">
+        rallyio lets data owners list their data for the world to use — and get paid
+        every time it's used. Users explore catalogs for free and pay only for the data they read.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#coupon">Start exploring</a>
+        <a class="btn btn--ghost" href="#providers">List your data →</a>
+      </div>
+      <p class="hero__note">No account needed to browse. Pay as you go with a simple coupon code.</p>
+
+      <div class="hero__card">
+        <div class="flow">
+          <div class="flow__step">
+            <div class="flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            </div>
+            <h4>Owners upload data</h4>
+            <p>List a dataset and make it discoverable.</p>
+          </div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step">
+            <div class="flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <h4>Users explore catalogs</h4>
+            <p>Search and discover — for free.</p>
+          </div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step">
+            <div class="flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v8m-3-5h6"/></svg>
+            </div>
+            <h4>Owners get paid</h4>
+            <p>Earn each time your data is read.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">How it works</span>
+        <h2>Two sides, one simple loop.</h2>
+        <p class="section__lead">Data owners earn. Users pay only for what they read. That's it.</p>
+      </div>
+
+      <div class="cards cards--3">
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          </div>
+          <h3>1 · List your data</h3>
+          <p>Bring a dataset to rallyio and make it accessible to users across the network.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <h3>2 · Explore for free</h3>
+          <p>Anyone can search and browse the catalogs at no cost — discover before you spend.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v8m-3-5h6"/></svg>
+          </div>
+          <h3>3 · Pay per read</h3>
+          <p>Use a coupon code to read data. Owners are paid for every read of their data.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== For data owners ===== -->
+  <section class="section section--tint" id="providers">
+    <div class="container split">
+      <div class="split__text">
+        <span class="eyebrow">For data owners</span>
+        <h2>Upload your data. Get paid when it's used.</h2>
+        <p>List a dataset on rallyio and make it available to a growing base of users.
+           Every time someone reads your data, you earn — automatically.</p>
+        <ul class="ticks">
+          <li>Make your data discoverable in seconds</li>
+          <li>Keep ownership — you only share access</li>
+          <li>Earn on every read, paid as you go</li>
+        </ul>
+        <a class="btn btn--primary" href="mailto:rallyioai@gmail.com?subject=I%20want%20to%20list%20my%20data%20on%20rallyio&amp;body=Hi%20rallyio%20team%2C%0A%0AI'd%20like%20to%20list%20a%20dataset.%20Here's%20a%20quick%20description%3A%0A%0A">List my data →</a>
+      </div>
+      <div class="split__visual">
+        <div class="panel">
+          <div class="panel__row"><span>Your dataset</span><span class="pill pill--live">live</span></div>
+          <div class="panel__bar"><i style="width:84%"></i></div>
+          <div class="panel__row panel__row--muted"><span>Reads this month</span><span>1,294</span></div>
+          <div class="panel__row panel__row--muted"><span>Earnings</span><span class="earn">$64.70</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== For users / pay as you go ===== -->
+  <section class="section" id="users">
+    <div class="container split split--reverse">
+      <div class="split__text">
+        <span class="eyebrow">For users · pay as you go</span>
+        <h2>Explore catalogs free. Pay only for what you read.</h2>
+        <p>Search across catalogs at no cost. When you're ready to read data, a coupon code
+           lets you pay as you go — efficient, structured reads with no subscription.</p>
+        <ul class="ticks">
+          <li>Browse and search catalogs for free</li>
+          <li>Read data efficiently — only what you need</li>
+          <li>Top up with a coupon code, no account required</li>
+        </ul>
+        <a class="btn btn--primary" href="#coupon">Get a coupon code →</a>
+      </div>
+      <div class="split__visual">
+        <div class="panel panel--code">
+          <div class="panel__label">Your coupon</div>
+          <div class="code">XXXX&ndash;XXXX</div>
+          <div class="panel__row panel__row--muted"><span>Balance</span><span>pay as you go</span></div>
+          <div class="panel__hint">Request a code by email — see below.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Coupon / get a code ===== -->
+  <section class="section section--tint" id="coupon">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Get a code</span>
+        <h2>Coupon codes are issued on request.</h2>
+        <p class="section__lead">
+          Email us and we'll send you a coupon code to start reading data. Buying codes
+          instantly online is coming soon.
+        </p>
+      </div>
+
+      <div class="cards cards--2">
+        <article class="card card--accent">
+          <h3>Request by email</h3>
+          <p>Send a quick note and we'll reply with a coupon code you can use right away.</p>
+          <a class="btn btn--primary" href="mailto:rallyioai@gmail.com?subject=Request%20a%20rallyio%20coupon%20code&amp;body=Hi%20rallyio%20team%2C%0A%0AI'd%20like%20a%20coupon%20code%20to%20explore%20the%20catalogs.%0A%0AThanks!">Email rallyioai@gmail.com</a>
+          <p class="card__fine">Currently the only way to get a code.</p>
+        </article>
+        <article class="card card--soon">
+          <h3>Pay online <span class="tag">coming soon</span></h3>
+          <p>Soon you'll be able to buy a coupon code instantly with a card and start reading immediately.</p>
+          <button class="btn btn--disabled" disabled>Buy a code</button>
+          <p class="card__fine">We're building instant, pay-as-you-go checkout.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <h2>Ready to start?</h2>
+      <p>Explore the catalogs for free, or list your data and start earning.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="mailto:rallyioai@gmail.com?subject=Request%20a%20rallyio%20coupon%20code">Get a coupon code</a>
+        <a class="btn btn--ghost" href="mailto:rallyioai@gmail.com?subject=I%20want%20to%20list%20my%20data%20on%20rallyio">List your data</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="brand">
+        <span class="brand__dot"></span>
+        <span class="brand__name">rally<span>io</span></span>
+      </div>
+      <p class="footer__tag">A simple marketplace for data — upload, explore, pay as you go.</p>
+      <a class="footer__mail" href="mailto:rallyioai@gmail.com">rallyioai@gmail.com</a>
+      <p class="footer__copy">© <span id="year">2026</span> rallyio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
