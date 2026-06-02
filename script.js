@@ -455,21 +455,80 @@
       '</article></a>';
   }
 
+  // ---- Lazy rendering: show a page of cards, append more as the user scrolls ----
+  var PAGE = 50;     // initial + per-scroll batch size
+  var view = [];     // the current (filtered) list being displayed
+  var shown = 0;     // how many of `view` are currently in the DOM
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function updateNote() {
+    if (!note) return;
+    var prefix = isLive ? '' : 'Showing the latest known catalogs. ';
+    note.textContent = view.length ? (prefix + 'Showing ' + shown + ' of ' + view.length + '.') : prefix.trim();
+  }
+
+  function renderMore() {
+    if (shown >= view.length) return;
+    var next = view.slice(shown, shown + PAGE);
+    list.insertAdjacentHTML('beforeend', next.map(cardHtml).join(''));
+    shown += next.length;
+    updateNote();
+  }
+
   function applyFilter() {
     var q = ((search && search.value) || '').trim().toLowerCase();
-    var filtered = !q ? allCatalogs : allCatalogs.filter(function (c) {
+    view = !q ? allCatalogs : allCatalogs.filter(function (c) {
       return (String(c.name || '') + ' ' + String(c.domain || '') + ' ' + String(c.description || ''))
         .toLowerCase().indexOf(q) !== -1;
     });
-    list.innerHTML = filtered.length
-      ? filtered.map(cardHtml).join('')
-      : '<p class="catalog-loading">No catalogs match “' + esc(q) + '”.</p>';
-    if (note) note.textContent = isLive ? '' : 'Showing the latest known catalogs.';
+    shown = 0;
+    list.innerHTML = '';
+    if (!view.length) {
+      list.innerHTML = '<p class="catalog-loading">No catalogs match “' + esc(q) + '”.</p>';
+      updateNote();
+      return;
+    }
+    renderMore();  // first page; the rest lazy-loads on scroll
   }
 
-  function load(catalogs, live) { allCatalogs = catalogs; isLive = live; applyFilter(); }
+  // Infinite scroll: load the next page when a sentinel near the list end appears.
+  function setupLazyLoad() {
+    var scrollRoot = list.closest('.catalog-scroll');  // present on the home page; null => viewport
+    if ('IntersectionObserver' in window) {
+      var sentinel = document.createElement('div');
+      sentinel.className = 'catalog-sentinel';
+      sentinel.setAttribute('aria-hidden', 'true');
+      sentinel.style.height = '1px';
+      list.parentNode.insertBefore(sentinel, list.nextSibling);
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) renderMore();
+      }, { root: scrollRoot || null, rootMargin: '300px' }).observe(sentinel);
+    } else {
+      var target = scrollRoot || window;
+      target.addEventListener('scroll', function () {
+        var nearBottom = scrollRoot
+          ? scrollRoot.scrollTop + scrollRoot.clientHeight >= scrollRoot.scrollHeight - 300
+          : window.innerHeight + window.scrollY >= document.body.offsetHeight - 300;
+        if (nearBottom) renderMore();
+      }, { passive: true });
+    }
+  }
+
+  function load(catalogs, live) {
+    allCatalogs = shuffle((catalogs || []).slice());  // random order each visit
+    isLive = live;
+    applyFilter();
+  }
 
   if (search) search.addEventListener('input', applyFilter);
+  setupLazyLoad();
 
   fetch(CATALOGS_API, { mode: 'cors' })
     .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
