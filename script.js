@@ -395,7 +395,23 @@
     { catalog_id: 'next_holidays', name: 'Upcoming Public Holidays (Nager.Date)', domain: 'reference', read_rate_usd: 0, is_real: true,
       description: 'The next upcoming public holidays for a country — date, name and whether nationwide.' },
     { catalog_id: 'pokedex_entries', name: 'Pokédex Entries (PokeAPI)', domain: 'gaming', read_rate_usd: 0, is_real: true,
-      description: 'The Pokémon listed in a regional Pokédex, with their entry numbers.' }
+      description: 'The Pokémon listed in a regional Pokédex, with their entry numbers.' },
+    { catalog_id: 'pokemon_species', name: 'Pokémon Species / Pokédex Info (PokeAPI)', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'Pokédex info — color, habitat, capture rate, egg groups, legendary status and flavor text.' },
+    { catalog_id: 'anime_schedule', name: 'Anime Broadcast Schedule (Jikan)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'Anime broadcasting on a given weekday this season — title, type, score and broadcast time.' },
+    { catalog_id: 'openalex_topics', name: 'Research Topics (OpenAlex)', domain: 'research', read_rate_usd: 0, is_real: true,
+      description: 'Search fine-grained research topics — name, field/domain, works count and a description.' },
+    { catalog_id: 'marine_forecast', name: 'Marine / Wave Forecast (Open-Meteo)', domain: 'environment', read_rate_usd: 0, is_real: true,
+      description: 'Daily ocean wave forecast for a coastal place — maximum wave height and period.' },
+    { catalog_id: 'nws_forecast', name: 'Detailed US Forecast (NWS)', domain: 'weather', read_rate_usd: 0, is_real: true,
+      description: 'Detailed multi-period US weather forecast — temperature, wind and a narrative per period.' },
+    { catalog_id: 'famous_births', name: 'Famous Births (Wikipedia)', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'Notable people born on a given calendar date — year, who they are and a link.' },
+    { catalog_id: 'famous_deaths', name: 'Notable Deaths (Wikipedia)', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'Notable people who died on a given calendar date — year, who they were and a link.' },
+    { catalog_id: 'game_lookup', name: 'PC Game Price Lookup (CheapShark)', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: "Find a specific PC game and its current cheapest price across stores." }
   ];
 
   var list = document.getElementById('catalogList');
