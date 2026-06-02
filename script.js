@@ -277,7 +277,31 @@
     { catalog_id: 'meals_by_area', name: 'Meals by Cuisine (TheMealDB)', domain: 'food', read_rate_usd: 0, is_real: true,
       description: 'List dishes from a cuisine (Italian, Japanese, Mexican…) — dish, a photo and a link.' },
     { catalog_id: 'wiki_featured', name: 'Wikipedia Most-Read (by date)', domain: 'reference', read_rate_usd: 0, is_real: true,
-      description: 'The most-read Wikipedia articles on a day — title, view count, an extract and a link.' }
+      description: 'The most-read Wikipedia articles on a day — title, view count, an extract and a link.' },
+    { catalog_id: 'spacex_ships', name: 'SpaceX Ships', domain: 'space', read_rate_usd: 0, is_real: true,
+      description: "SpaceX's support/recovery fleet — name, type, roles, home port, year built and status." },
+    { catalog_id: 'spacex_launchpads', name: 'SpaceX Launchpads', domain: 'space', read_rate_usd: 0, is_real: true,
+      description: 'SpaceX launch sites — name, locality, region, status and launch attempts/successes.' },
+    { catalog_id: 'chart_artists', name: 'Top Artists Chart (Deezer)', domain: 'media', read_rate_usd: 0, is_real: true,
+      description: 'The current top music artists chart — rank, artist name and a link.' },
+    { catalog_id: 'chart_tracks', name: 'Top Songs Chart (Deezer)', domain: 'media', read_rate_usd: 0, is_real: true,
+      description: 'The current top songs chart — rank, title, artist, album and a link.' },
+    { catalog_id: 'elevation', name: 'Elevation (Open-Elevation)', domain: 'geography', read_rate_usd: 0, is_real: true,
+      description: 'Ground elevation (metres above sea level) for any place, with its coordinates.' },
+    { catalog_id: 'countries_by_capital', name: 'Country by Capital (REST Countries)', domain: 'geography', read_rate_usd: 0, is_real: true,
+      description: 'Find the country for a given capital city — country, population, region and subregion.' },
+    { catalog_id: 'antonyms', name: 'Antonyms (Datamuse)', domain: 'language', read_rate_usd: 0, is_real: true,
+      description: 'Find antonyms (opposite-meaning words) for a word, ranked by relevance.' },
+    { catalog_id: 'github_gists', name: 'GitHub Gists', domain: 'software', read_rate_usd: 0, is_real: true,
+      description: "List a user's public gists (code snippets) — description, files, date and a link." },
+    { catalog_id: 'ghibli_locations', name: 'Studio Ghibli Locations', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'Locations from Studio Ghibli films — name, climate, terrain and surface water.' },
+    { catalog_id: 'random_meal', name: 'Random Meal (TheMealDB)', domain: 'food', read_rate_usd: 0, is_real: true,
+      description: "A random meal recipe — name, category, cuisine, ingredients, instructions and a photo." },
+    { catalog_id: 'anime_genres', name: 'Anime Genres (Jikan)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'The list of anime genres with how many anime fall under each.' },
+    { catalog_id: 'trivia_categories', name: 'Trivia Categories (Open Trivia DB)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'The list of available trivia categories.' }
   ];
 
   var list = document.getElementById('catalogList');
