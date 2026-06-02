@@ -51,7 +51,7 @@
         <a class="btn btn--primary" href="#connect-claude">Add to Claude →</a>
         <a class="btn btn--ghost" href="#catalogs">Explore catalogs</a>
       </div>
-      <p class="hero__note">Browse free. Sign in with Google for $5 of credits — then pay as you go.</p>
+      <p class="hero__note">Browse free. Most catalogs are just <strong>$1 per 1,000 records</strong> — sign in with Google for $5 of credits to start.</p>
 
       <div class="hero__card">
         <div class="flow">
@@ -112,7 +112,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v8m-3-5h6"/></svg>
           </div>
           <h3>3 · Pay per read</h3>
-          <p>Spend research credits to read records. Businesses are paid for every read.</p>
+          <p>Just $1 per 1,000 records on most catalogs. Businesses are paid for every read.</p>
         </article>
       </div>
     </div>
@@ -125,7 +125,7 @@
         <span class="eyebrow">Catalogs</span>
         <h2>Browse what's available.</h2>
         <p class="section__lead">
-          Each catalog sets its own rate to read one record. Searching is always free —
+          Most catalogs are just <strong>$1 per 1,000 records</strong>. Searching is always free —
           you only spend credits when you read data.
         </p>
       </div>
@@ -137,11 +137,16 @@
                aria-label="Search catalogs" />
       </div>
 
-      <div id="catalogList" class="cards cards--3" aria-live="polite">
-        <!-- Populated by script.js from the live /catalogs API, with a built-in fallback. -->
-        <p id="catalogLoading" class="catalog-loading">Loading catalogs…</p>
+      <div class="catalog-scroll">
+        <div id="catalogList" class="cards cards--3" aria-live="polite">
+          <!-- Populated by script.js from the live /catalogs API, with a built-in fallback. -->
+          <p id="catalogLoading" class="catalog-loading">Loading catalogs…</p>
+        </div>
       </div>
       <p id="catalogNote" class="catalog-note"></p>
+      <div class="catalog-viewall">
+        <a class="btn btn--ghost" href="catalogs.html">View all catalogs →</a>
+      </div>
     </div>
   </section>
 

@@ -30,9 +30,13 @@
       ? '<span class="badge badge--live">live</span>'
       : '<span class="badge badge--test">TEST_ONLY</span>';
     $('catDomain').textContent = String(c.domain || '—').replace(/_/g, ' ');
-    $('catRate').textContent = (Number(c.read_rate_usd) > 0)
-      ? '$' + Number(c.read_rate_usd).toFixed(2) + ' / record'
-      : 'free';
+    var rate = Number(c.read_rate_usd) || 0;
+    if (rate > 0) {
+      var per1k = rate * 1000;
+      $('catRate').textContent = '$' + (per1k % 1 === 0 ? per1k.toFixed(0) : per1k.toFixed(2)) + ' / 1,000 records';
+    } else {
+      $('catRate').textContent = 'free';
+    }
     $('catDesc').textContent = c.description || '';
 
     var filters = c.filters || [];

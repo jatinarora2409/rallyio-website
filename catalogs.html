@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rallyio — all catalogs</title>
+  <meta name="description" content="Browse every dataset on rallyio. Searching is free; most catalogs are just $1 per 1,000 records." />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' rx='8' fill='%232F80FF'/&gt;&lt;circle cx='16' cy='16' r='6' fill='white'/&gt;&lt;/svg&gt;" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="rallyio home">
+        <span class="brand__dot"></span>
+        <span class="brand__name">rally<span>io</span></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html#how">How it works</a>
+        <a href="catalogs.html">Catalogs</a>
+        <a href="index.html#providers">Sell data</a>
+      </nav>
+
+      <div class="nav__cta">
+        <span id="navGreeting" class="nav__greeting" hidden></span>
+        <a class="btn btn--primary btn--sm" id="navCta" href="app.html">Sign in</a>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== All catalogs ===== -->
+  <section class="section" id="catalogs">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Catalogs</span>
+        <h2>All catalogs.</h2>
+        <p class="section__lead">
+          Every dataset on rallyio, in one place. Searching is always free —
+          most catalogs are just <strong>$1 per 1,000 records</strong> you read.
+        </p>
+      </div>
+
+      <div class="catalog-search-wrap">
+        <svg class="catalog-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="catalogSearch" class="catalog-search" type="search" autocomplete="off"
+               placeholder="Search catalogs — e.g. “clinical”, “movies”, “github”, “crypto”…"
+               aria-label="Search catalogs" />
+      </div>
+
+      <div id="catalogList" class="cards cards--3" aria-live="polite">
+        <!-- Populated by script.js from the live /catalogs API, with a built-in fallback. -->
+        <p id="catalogLoading" class="catalog-loading">Loading catalogs…</p>
+      </div>
+      <p id="catalogNote" class="catalog-note"></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="brand"><span class="brand__dot"></span><span class="brand__name">rally<span>io</span></span></div>
+      <a class="footer__mail" href="mailto:rallyioai@gmail.com">rallyioai@gmail.com</a>
+      <p class="footer__copy">© <span id="year">2026</span> rallyio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

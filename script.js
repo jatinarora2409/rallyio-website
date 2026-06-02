@@ -28,27 +28,27 @@
   var FALLBACK = [
     { catalog_id: 'linkedin_people', name: 'LinkedIn Professional Search', domain: 'people', read_rate_usd: 0.10, is_real: true,
       description: 'Find people and look up individuals by name, company and location.' },
-    { catalog_id: 'clinical_trials', name: 'Clinical Trials (ClinicalTrials.gov)', domain: 'health', read_rate_usd: 0.02, is_real: true,
+    { catalog_id: 'clinical_trials', name: 'Clinical Trials (ClinicalTrials.gov)', domain: 'health', read_rate_usd: 0.001, is_real: true,
       description: 'Registered clinical trials by condition, sponsor or status — phase, enrollment and more.' },
-    { catalog_id: 'sec_filings', name: 'SEC Filings (EDGAR)', domain: 'finance', read_rate_usd: 0.03, is_real: true,
+    { catalog_id: 'sec_filings', name: 'SEC Filings (EDGAR)', domain: 'finance', read_rate_usd: 0.001, is_real: true,
       description: 'Full-text search of U.S. public-company SEC filings (10-K, 10-Q, 8-K, S-1).' },
-    { catalog_id: 'federal_contracts', name: 'U.S. Federal Contracts & Grants (USAspending)', domain: 'government', read_rate_usd: 0.02, is_real: true,
+    { catalog_id: 'federal_contracts', name: 'U.S. Federal Contracts & Grants (USAspending)', domain: 'government', read_rate_usd: 0.001, is_real: true,
       description: 'Federal contracts and grants by keyword, recipient or agency.' },
-    { catalog_id: 'research_papers', name: 'Academic Papers (OpenAlex)', domain: 'research', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'research_papers', name: 'Academic Papers (OpenAlex)', domain: 'research', read_rate_usd: 0.001, is_real: true,
       description: '250M+ scholarly works — title, authors, year, venue, citations and DOI.' },
-    { catalog_id: 'github_repos', name: 'GitHub Repositories', domain: 'software', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'github_repos', name: 'GitHub Repositories', domain: 'software', read_rate_usd: 0.001, is_real: true,
       description: 'Search public repos by keyword or language — stars, forks, license, topics.' },
-    { catalog_id: 'movies_tv', name: 'Movies & TV Shows (TVmaze)', domain: 'entertainment', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'movies_tv', name: 'Movies & TV Shows (TVmaze)', domain: 'entertainment', read_rate_usd: 0.001, is_real: true,
       description: 'Search TV shows — genres, network, premiere, rating, status and summary.' },
-    { catalog_id: 'food_products', name: 'Food Products (Open Food Facts)', domain: 'food', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'food_products', name: 'Food Products (Open Food Facts)', domain: 'food', read_rate_usd: 0.001, is_real: true,
       description: 'Packaged food & drink — brand, categories, Nutri-Score, NOVA group, ingredients.' },
-    { catalog_id: 'recipes', name: 'Recipes (TheMealDB)', domain: 'food', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'recipes', name: 'Recipes (TheMealDB)', domain: 'food', read_rate_usd: 0.001, is_real: true,
       description: 'Recipes by dish — category, cuisine, ingredients, instructions and a photo.' },
-    { catalog_id: 'books', name: 'Books (Open Library)', domain: 'books', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'books', name: 'Books (Open Library)', domain: 'books', read_rate_usd: 0.001, is_real: true,
       description: 'Books — title, author(s), first publication year, editions and subjects.' },
-    { catalog_id: 'countries', name: 'Countries (REST Countries)', domain: 'geography', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'countries', name: 'Countries (REST Countries)', domain: 'geography', read_rate_usd: 0.001, is_real: true,
       description: 'Country facts — capital, population, region, languages and currencies.' },
-    { catalog_id: 'crypto', name: 'Crypto Markets (CoinGecko)', domain: 'crypto', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'crypto', name: 'Crypto Markets (CoinGecko)', domain: 'crypto', read_rate_usd: 0.001, is_real: true,
       description: 'Live crypto market data — price, market cap, rank and 24h change.' }
   ];
 
@@ -64,7 +64,10 @@
 
   function rateLabel(r) {
     var n = Number(r) || 0;
-    return n > 0 ? '$' + n.toFixed(2) + ' / record' : 'free';
+    if (n <= 0) return 'free';
+    var per1k = n * 1000;
+    var amt = per1k % 1 === 0 ? per1k.toFixed(0) : per1k.toFixed(2);
+    return '$' + amt + ' / 1,000 records';
   }
 
   function prettyDomain(d) {
