@@ -302,6 +302,9 @@ a { color: inherit; text-decoration: none; }
   box-shadow: var(--shadow); padding: 32px;
 }
 .connect-block .cat-steps { margin: 20px 0 24px; }
+.connect-block__note { margin-top: 16px; font-size: .9rem; color: var(--muted); }
+.connect-block__note a { color: var(--blue-600); font-weight: 600; text-decoration: none; }
+.connect-block__note a:hover { text-decoration: underline; }
 
 /* ---------- Account app ---------- */
 .app { min-height: 60vh; padding: 56px 0 80px; background: linear-gradient(180deg, var(--blue-50), #fff 60%); }

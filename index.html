@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
 
@@ -44,14 +44,14 @@
       <span class="eyebrow">Research, unblocked</span>
       <h1 class="hero__title">Doing research is hard.<br /><span class="grad">Finding the data shouldn't be.</span></h1>
       <p class="hero__sub">
-        You've got AI but no data — or data but no AI. rallyio is where they meet:
-        explore real datasets for free and read exactly the records you need. Pay as you go, no subscription.
+        Give Claude real-world data. rallyio is a connector (MCP) with 190+ live data catalogs —
+        clinical trials, SEC filings, papers, weather, crypto, movies and more. Add it in a minute and just ask.
       </p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="#connect-claude">Add to Claude →</a>
         <a class="btn btn--ghost" href="#catalogs">Explore catalogs</a>
       </div>
-      <p class="hero__note"><strong>Every catalog is free to read.</strong> A few premium sources (like LinkedIn) are pay-as-you-go — sign in with Google for $5 of credits.</p>
+      <p class="hero__note"><strong>Free to use — no login, no payment.</strong> Add the connector and Claude can read 190+ catalogs. (A couple of premium sources, like LinkedIn, need a quick Google sign-in.)</p>
 
       <div class="hero__card">
         <div class="flow">
@@ -89,7 +89,7 @@
       <div class="section__head">
         <span class="eyebrow">How it works</span>
         <h2>Two sides, one simple loop.</h2>
-        <p class="section__lead">Businesses earn. Researchers pay only for what they read. That's it.</p>
+        <p class="section__lead">Use 190+ catalogs free. Businesses can also list premium data and earn when it's read.</p>
       </div>
 
       <div class="cards cards--3">
@@ -155,22 +155,22 @@
     <div class="container">
       <div class="section__head">
         <span class="eyebrow">Use it in Claude</span>
-        <h2>Add rallyio to Claude in a minute.</h2>
-        <p class="section__lead">Connect once, sign in with Google, and ask Claude to search any catalog —
-           billed to your account, with $5 free to start.</p>
+        <h2>Add rallyio to Claude in a minute — free, no login.</h2>
+        <p class="section__lead">Paste the connector URL, and Claude can read 190+ data catalogs.
+           No account, no sign-in, no payment.</p>
       </div>
       <div class="connect-block">
         <div class="connect-url">
-          <code id="homeConnectUrl">https://rallyio-hfr-bmurezb4na-uc.a.run.app/connect/mcp</code>
+          <code id="homeConnectUrl">https://rallyio-hfr-bmurezb4na-uc.a.run.app/mcp</code>
           <button id="copyHomeConnect" class="btn btn--ghost btn--sm">Copy</button>
         </div>
         <div class="cat-steps">
           <div class="cat-step"><span class="cat-step__n">1</span><div><strong>Open Claude → Customize → Connectors</strong><p>On a Pro, Max, Team or Enterprise plan.</p></div></div>
-          <div class="cat-step"><span class="cat-step__n">2</span><div><strong>Add custom connector</strong><p>Click “Add custom connector” and paste the URL above.</p></div></div>
-          <div class="cat-step"><span class="cat-step__n">3</span><div><strong>Sign in with Google</strong><p>Authorize rallyio — your account starts with $5 free credits.</p></div></div>
-          <div class="cat-step"><span class="cat-step__n">4</span><div><strong>Ask for data</strong><p>e.g. “find recruiting diabetes trials”, “top AI papers this year”, “SEC 10-Ks mentioning AI risk”.</p></div></div>
+          <div class="cat-step"><span class="cat-step__n">2</span><div><strong>Add custom connector</strong><p>Click “Add custom connector” and paste the URL above. No login required.</p></div></div>
+          <div class="cat-step"><span class="cat-step__n">3</span><div><strong>Ask for data</strong><p>e.g. “find recruiting diabetes trials”, “top AI papers this year”, “Bitcoin price history”, “weather in Tokyo”.</p></div></div>
         </div>
         <a class="btn btn--primary" href="https://claude.ai/customize/connectors?modal=add-custom-connector" target="_blank" rel="noopener">Add to Claude →</a>
+        <p class="connect-block__note">Want premium sources like LinkedIn? <a href="app.html">Sign in</a> and use the sign-in connector — everything else stays free.</p>
       </div>
     </div>
   </section>
@@ -233,24 +233,24 @@
   <section class="section section--tint" id="credits">
     <div class="container">
       <div class="section__head">
-        <span class="eyebrow">Get credits</span>
-        <h2>Get $5 in research credits, free.</h2>
+        <span class="eyebrow">Premium sources</span>
+        <h2>Need LinkedIn? Sign in — and get $5 free.</h2>
         <p class="section__lead">
-          Sign in with Google and we'll drop <strong>$5 of credits</strong> in your account —
-          enough to start reading right away. Buy more anytime (coming soon).
+          The 190+ standard catalogs are free with no account. A few premium sources (like LinkedIn
+          people search) are pay-as-you-go — <strong>sign in and we'll add $5 of credits</strong> to start.
         </p>
       </div>
 
       <div class="cards cards--2">
         <article class="card card--accent">
           <h3>Sign in — $5 free</h3>
-          <p>Log in with Google and your account is funded with $5 instantly. No code, no email, no card.</p>
+          <p>Log in with Google to unlock premium catalogs. Your account is funded with $5 instantly — no code, no card.</p>
           <a class="btn btn--primary" href="app.html">Sign in with Google</a>
-          <p class="card__fine">$5 free on your first sign-in.</p>
+          <p class="card__fine">Only needed for premium sources. Everything else is free.</p>
         </article>
         <article class="card card--soon">
           <h3>Buy more credits <span class="tag">coming soon</span></h3>
-          <p>When you run low, top up your account instantly with a card and keep reading.</p>
+          <p>When you run low on premium reads, top up your account instantly with a card.</p>
           <button class="btn btn--disabled" disabled>Buy credits</button>
           <p class="card__fine">We're building instant checkout.</p>
         </article>
