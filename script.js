@@ -125,7 +125,31 @@
     { catalog_id: 'food_recalls', name: 'Food Recalls (openFDA)', domain: 'food', read_rate_usd: 0, is_real: true,
       description: 'U.S. food recalls — firm, product, reason, classification, status and date.' },
     { catalog_id: 'weather_alerts', name: 'US Weather Alerts (NWS)', domain: 'weather', read_rate_usd: 0, is_real: true,
-      description: 'Active U.S. weather alerts by state — event, severity, urgency, area and timing.' }
+      description: 'Active U.S. weather alerts by state — event, severity, urgency, area and timing.' },
+    { catalog_id: 'gbif_species', name: 'Species (GBIF)', domain: 'science', read_rate_usd: 0, is_real: true,
+      description: 'Search species and taxa — scientific name, rank, kingdom, family, genus and status.' },
+    { catalog_id: 'tv_people', name: 'TV & Film People (TVmaze)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'Search actors and TV/film people — country, birthday, gender and a profile link.' },
+    { catalog_id: 'pypi_packages', name: 'Python Packages (PyPI)', domain: 'software', read_rate_usd: 0, is_real: true,
+      description: 'Look up a Python package — version, summary, author, license and required Python.' },
+    { catalog_id: 'research_institutions', name: 'Research Institutions (OpenAlex)', domain: 'research', read_rate_usd: 0, is_real: true,
+      description: 'Search universities & research institutions — country, type, works, citations, homepage.' },
+    { catalog_id: 'rhymes', name: 'Rhyming Words (Datamuse)', domain: 'language', read_rate_usd: 0, is_real: true,
+      description: 'Find words that rhyme with a given word, ranked, with syllable counts.' },
+    { catalog_id: 'device_recalls', name: 'Medical Device Recalls (openFDA)', domain: 'health', read_rate_usd: 0, is_real: true,
+      description: 'U.S. medical device recalls — firm, device, reason, classification, status and date.' },
+    { catalog_id: 'countries_by_region', name: 'Countries by Region (REST Countries)', domain: 'geography', read_rate_usd: 0, is_real: true,
+      description: 'All countries in a region — capital, population, subregion, languages and currencies.' },
+    { catalog_id: 'trending_crypto', name: 'Trending Crypto (CoinGecko)', domain: 'crypto', read_rate_usd: 0, is_real: true,
+      description: 'Cryptocurrencies trending right now — name, symbol, rank, price and 24h change.' },
+    { catalog_id: 'fbi_wanted', name: 'FBI Wanted', domain: 'government', read_rate_usd: 0, is_real: true,
+      description: "People on the FBI's wanted list — name, category, reward, field office and a link." },
+    { catalog_id: 'internet_archive', name: 'Internet Archive', domain: 'media', read_rate_usd: 0, is_real: true,
+      description: 'Search millions of free books, films, audio and software — title, creator, year, type.' },
+    { catalog_id: 'name_predictions', name: 'Name Predictions (gender / age / nationality)', domain: 'data', read_rate_usd: 0, is_real: true,
+      description: 'Predict likely gender, age and nationality for a first name, with probabilities.' },
+    { catalog_id: 'quotes', name: 'Inspirational Quotes (ZenQuotes)', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'A selection of inspirational quotes with their authors.' }
   ];
 
   var list = document.getElementById('catalogList');
