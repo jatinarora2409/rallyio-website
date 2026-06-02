@@ -266,7 +266,7 @@ a { color: inherit; text-decoration: none; }
   padding: 4px 11px; border-radius: 999px; margin-bottom: 14px; text-transform: capitalize;
 }
 .catalog-card__rate {
-  display: flex; align-items: baseline; justify-content: space-between;
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
   border-top: 1px solid var(--line); padding-top: 14px; margin-top: auto;
 }
 .catalog-card__rate span { color: var(--muted); font-size: .85rem; }
