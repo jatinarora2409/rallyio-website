@@ -26,7 +26,7 @@
   // Fallback used if the live API is unreachable (keeps the page useful offline
   // / before the backend is up). Mirrors the live catalog line-up.
   var FALLBACK = [
-    { catalog_id: 'linkedin_people', name: 'LinkedIn Professional Search', domain: 'people', read_rate_usd: 0.10, is_real: true,
+    { catalog_id: 'linkedin_people', name: 'LinkedIn Professional Search', domain: 'people', read_rate_usd: 0.05, is_real: true,
       description: 'Find people and look up individuals by name, company and location.' },
     { catalog_id: 'clinical_trials', name: 'Clinical Trials (ClinicalTrials.gov)', domain: 'health', read_rate_usd: 0.001, is_real: true,
       description: 'Registered clinical trials by condition, sponsor or status — phase, enrollment and more.' },
