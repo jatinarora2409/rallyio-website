@@ -73,7 +73,29 @@
     { catalog_id: 'wikipedia', name: 'Wikipedia Search', domain: 'reference', read_rate_usd: 0.001, is_real: true,
       description: 'Search Wikipedia articles — title, snippet, word count and a link.' },
     { catalog_id: 'exchange_rates', name: 'Currency Exchange Rates (Frankfurter / ECB)', domain: 'finance', read_rate_usd: 0.001, is_real: true,
-      description: 'Latest FX reference rates for any base currency against major world currencies.' }
+      description: 'Latest FX reference rates for any base currency against major world currencies.' },
+    { catalog_id: 'weather', name: 'Weather Forecast (Open-Meteo)', domain: 'weather', read_rate_usd: 0.001, is_real: true,
+      description: 'Daily forecast for any place — high/low temp, precipitation, wind and current conditions.' },
+    { catalog_id: 'world_bank', name: 'World Development Indicators (World Bank)', domain: 'economics', read_rate_usd: 0.001, is_real: true,
+      description: 'Country indicators over recent years — population, GDP, life expectancy, inflation and more.' },
+    { catalog_id: 'pokemon', name: 'Pokémon (PokeAPI)', domain: 'gaming', read_rate_usd: 0.001, is_real: true,
+      description: 'Look up a Pokémon — types, height, weight, base experience, abilities and a sprite.' },
+    { catalog_id: 'sports_teams', name: 'Sports Teams (TheSportsDB)', domain: 'sports', read_rate_usd: 0.001, is_real: true,
+      description: 'Sports teams by name — sport, league, year formed, stadium, country and a description.' },
+    { catalog_id: 'trivia', name: 'Trivia Questions (Open Trivia DB)', domain: 'entertainment', read_rate_usd: 0.001, is_real: true,
+      description: 'General-knowledge trivia — category, difficulty, question and correct/incorrect answers.' },
+    { catalog_id: 'rick_and_morty', name: 'Rick and Morty Characters', domain: 'entertainment', read_rate_usd: 0.001, is_real: true,
+      description: 'Characters from Rick and Morty — status, species, gender, origin, location and episodes.' },
+    { catalog_id: 'poetry', name: 'Poetry (PoetryDB)', domain: 'literature', read_rate_usd: 0.001, is_real: true,
+      description: 'Classic public-domain poems by author or title — author, title, line count and an excerpt.' },
+    { catalog_id: 'word_finder', name: 'Word Finder (Datamuse)', domain: 'language', read_rate_usd: 0.001, is_real: true,
+      description: 'Find synonyms and related words ranked by relevance, with part of speech.' },
+    { catalog_id: 'covid_stats', name: 'COVID-19 Statistics (disease.sh)', domain: 'health', read_rate_usd: 0.001, is_real: true,
+      description: 'COVID-19 stats by country — cases, deaths, recovered, active, tests and per-capita rates.' },
+    { catalog_id: 'music_tracks', name: 'Music Tracks (Deezer)', domain: 'media', read_rate_usd: 0.001, is_real: true,
+      description: 'Search songs — title, artist, album, duration, popularity rank and a 30-second preview.' },
+    { catalog_id: 'universities', name: 'Universities (Hipolabs)', domain: 'education', read_rate_usd: 0.001, is_real: true,
+      description: 'Universities and colleges by country or name — country, state, website and domain.' }
   ];
 
   var list = document.getElementById('catalogList');
