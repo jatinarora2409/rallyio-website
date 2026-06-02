@@ -49,7 +49,31 @@
     { catalog_id: 'countries', name: 'Countries (REST Countries)', domain: 'geography', read_rate_usd: 0.001, is_real: true,
       description: 'Country facts — capital, population, region, languages and currencies.' },
     { catalog_id: 'crypto', name: 'Crypto Markets (CoinGecko)', domain: 'crypto', read_rate_usd: 0.001, is_real: true,
-      description: 'Live crypto market data — price, market cap, rank and 24h change.' }
+      description: 'Live crypto market data — price, market cap, rank and 24h change.' },
+    { catalog_id: 'drug_labels', name: 'Drug Labels (openFDA)', domain: 'health', read_rate_usd: 0.001, is_real: true,
+      description: 'FDA drug product labels — purpose, indications, manufacturer, route and warnings.' },
+    { catalog_id: 'federal_register', name: 'Federal Register (U.S. regulations)', domain: 'government', read_rate_usd: 0.001, is_real: true,
+      description: 'U.S. federal rules, proposed rules and notices by keyword — agency, abstract and link.' },
+    { catalog_id: 'itunes', name: 'iTunes & App Store Search (Apple)', domain: 'media', read_rate_usd: 0.001, is_real: true,
+      description: 'Music, podcasts, movies, TV, ebooks, audiobooks and apps — artist, genre, price and link.' },
+    { catalog_id: 'anime', name: 'Anime (Jikan / MyAnimeList)', domain: 'entertainment', read_rate_usd: 0.001, is_real: true,
+      description: 'Search anime — type, episodes, score, year, status, genres and a synopsis.' },
+    { catalog_id: 'breweries', name: 'Breweries (Open Brewery DB)', domain: 'business', read_rate_usd: 0.001, is_real: true,
+      description: 'Find breweries by name or city — type, address, phone and website.' },
+    { catalog_id: 'cocktails', name: 'Cocktails (TheCocktailDB)', domain: 'food', read_rate_usd: 0.001, is_real: true,
+      description: 'Cocktail and drink recipes — category, glass, ingredients and instructions.' },
+    { catalog_id: 'dictionary', name: 'Dictionary (Free Dictionary API)', domain: 'reference', read_rate_usd: 0.001, is_real: true,
+      description: 'Define English words — part of speech, definitions, examples, synonyms and phonetics.' },
+    { catalog_id: 'earthquakes', name: 'Earthquakes (USGS)', domain: 'science', read_rate_usd: 0.001, is_real: true,
+      description: 'Recent earthquakes worldwide — magnitude, place, time, depth and a details link.' },
+    { catalog_id: 'public_holidays', name: 'Public Holidays (Nager.Date)', domain: 'reference', read_rate_usd: 0.001, is_real: true,
+      description: 'Official public holidays for any country and year — date, name and type.' },
+    { catalog_id: 'spacex_launches', name: 'SpaceX Launches', domain: 'space', read_rate_usd: 0.001, is_real: true,
+      description: 'SpaceX rocket launches — mission, date, rocket, success and webcast/wiki links.' },
+    { catalog_id: 'wikipedia', name: 'Wikipedia Search', domain: 'reference', read_rate_usd: 0.001, is_real: true,
+      description: 'Search Wikipedia articles — title, snippet, word count and a link.' },
+    { catalog_id: 'exchange_rates', name: 'Currency Exchange Rates (Frankfurter / ECB)', domain: 'finance', read_rate_usd: 0.001, is_real: true,
+      description: 'Latest FX reference rates for any base currency against major world currencies.' }
   ];
 
   var list = document.getElementById('catalogList');
