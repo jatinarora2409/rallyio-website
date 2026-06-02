@@ -173,7 +173,31 @@
     { catalog_id: 'jisho', name: 'Japanese Dictionary (Jisho)', domain: 'language', read_rate_usd: 0, is_real: true,
       description: 'Look up Japanese words — kanji/kana, reading, English meanings, part of speech, JLPT.' },
     { catalog_id: 'school_holidays', name: 'School Holidays (OpenHolidays)', domain: 'reference', read_rate_usd: 0, is_real: true,
-      description: 'School holiday periods for a country and year — name, start/end dates and scope.' }
+      description: 'School holiday periods for a country and year — name, start/end dates and scope.' },
+    { catalog_id: 'on_this_day', name: 'On This Day (Wikipedia)', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'Notable historical events on a given calendar date — year, event and a link.' },
+    { catalog_id: 'music_albums', name: 'Music Albums (Deezer)', domain: 'media', read_rate_usd: 0, is_real: true,
+      description: 'Search music albums — title, artist, track count, type and a link.' },
+    { catalog_id: 'drug_adverse_events', name: 'Drug Adverse Events (openFDA)', domain: 'health', read_rate_usd: 0, is_real: true,
+      description: 'Reported drug side effects — drug, reactions, seriousness, country and date.' },
+    { catalog_id: 'device_clearances', name: 'Medical Device Clearances (openFDA 510k)', domain: 'health', read_rate_usd: 0, is_real: true,
+      description: 'FDA 510(k) device clearances — device, applicant, decision date, type and K-number.' },
+    { catalog_id: 'astronauts', name: 'SpaceX Astronauts (Crew)', domain: 'space', read_rate_usd: 0, is_real: true,
+      description: 'Astronauts on SpaceX crewed missions — name, agency, status, launches and wiki.' },
+    { catalog_id: 'tv_episodes', name: 'TV Episodes (TVmaze)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'Episode list for a TV show — season, number, title, air date, runtime and rating.' },
+    { catalog_id: 'adjectives', name: 'Describing Words (Datamuse)', domain: 'language', read_rate_usd: 0, is_real: true,
+      description: 'Find adjectives that commonly describe a noun, ranked by relevance.' },
+    { catalog_id: 'meals_by_ingredient', name: 'Meals by Ingredient (TheMealDB)', domain: 'food', read_rate_usd: 0, is_real: true,
+      description: 'Find recipes that use a given ingredient — dish name, a photo and a link.' },
+    { catalog_id: 'cocktails_by_ingredient', name: 'Cocktails by Ingredient (TheCocktailDB)', domain: 'food', read_rate_usd: 0, is_real: true,
+      description: 'Find cocktails that use a given spirit or ingredient — drink, a photo and a link.' },
+    { catalog_id: 'github_users', name: 'GitHub Users', domain: 'software', read_rate_usd: 0, is_real: true,
+      description: 'Search GitHub users and organizations — username, type, profile link and avatar.' },
+    { catalog_id: 'podcasts', name: 'Podcasts (Apple)', domain: 'media', read_rate_usd: 0, is_real: true,
+      description: 'Search podcasts — show, creator, genre, episode count, RSS feed and a link.' },
+    { catalog_id: 'commons_images', name: 'Free Images (Wikimedia Commons)', domain: 'media', read_rate_usd: 0, is_real: true,
+      description: 'Search freely-licensed images — title, direct image URL and a description page.' }
   ];
 
   var list = document.getElementById('catalogList');
