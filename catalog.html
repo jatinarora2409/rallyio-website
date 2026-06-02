@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rallyio — catalog</title>
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' rx='8' fill='%232F80FF'/&gt;&lt;circle cx='16' cy='16' r='6' fill='white'/&gt;&lt;/svg&gt;" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">rally<span>io</span></span></a>
+      <nav class="nav__links">
+        <a href="index.html#catalogs">← All catalogs</a>
+        <a href="app.html">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app">
+    <div class="container app__inner" style="max-width:760px">
+
+      <p id="catLoading" class="app-loading">Loading catalog…</p>
+
+      <section id="catError" class="app-card" hidden style="text-align:center">
+        <h1>Catalog not found</h1>
+        <p class="app-card__lead">We couldn't find that catalog.</p>
+        <a class="btn btn--primary" href="index.html#catalogs">Browse catalogs</a>
+      </section>
+
+      <article id="catView" hidden>
+        <div class="cat-head">
+          <span id="catBadge"></span>
+          <h1 id="catName"></h1>
+          <div class="cat-meta">
+            <span id="catDomain" class="catalog-pill"></span>
+            <span id="catRate" class="cat-rate"></span>
+          </div>
+        </div>
+        <p id="catDesc" class="cat-desc"></p>
+
+        <section class="app-card">
+          <h2>What you can search</h2>
+          <div id="catFilters" class="cat-filters"></div>
+        </section>
+
+        <section class="app-card" id="catSamplesWrap">
+          <h2>Try asking Claude</h2>
+          <div id="catSamples" class="cat-samples"></div>
+        </section>
+
+        <section class="app-card app-connect">
+          <h2>Use it in Claude (MCP)</h2>
+          <p class="app-connect__lead">Add the rallyio connector once — then ask any of the questions above and
+             Claude reads this catalog for you (billed to your account; searching is free).</p>
+          <div class="connect-url">
+            <code id="connectUrl">https://rallyio-hfr-bmurezb4na-uc.a.run.app/connect/mcp</code>
+            <button id="copyConnect" class="btn btn--ghost btn--sm">Copy</button>
+          </div>
+          <div class="cat-steps">
+            <div class="cat-step"><span class="cat-step__n">1</span><div><strong>Open Claude → Settings → Connectors</strong><p>On a Pro, Max, Team or Enterprise plan.</p></div></div>
+            <div class="cat-step"><span class="cat-step__n">2</span><div><strong>Add custom connector</strong><p>Click “Add custom connector” and paste the URL above.</p></div></div>
+            <div class="cat-step"><span class="cat-step__n">3</span><div><strong>Sign in with Google</strong><p>Authorize rallyio — your account starts with $5 free credits.</p></div></div>
+            <div class="cat-step"><span class="cat-step__n">4</span><div><strong>Ask away</strong><p>e.g. “<span id="catFirstSample">search this catalog</span>”.</p></div></div>
+          </div>
+          <a class="btn btn--primary" href="https://claude.ai/settings/connectors?modal=add-custom-connector" target="_blank" rel="noopener">Add to Claude →</a>
+        </section>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="brand"><span class="brand__dot"></span><span class="brand__name">rally<span>io</span></span></div>
+      <a class="footer__mail" href="mailto:rallyioai@gmail.com">rallyioai@gmail.com</a>
+      <p class="footer__copy">© <span id="year">2026</span> rallyio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="catalog.js"></script>
+</body>
+</html>

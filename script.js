@@ -26,17 +26,17 @@
   // Fallback used if the live API is unreachable (keeps the page useful offline
   // / before the backend is up). Mirrors the live catalog line-up.
   var FALLBACK = [
-    { name: 'LinkedIn Professional Search', domain: 'people', read_rate_usd: 0.10, is_real: true,
+    { catalog_id: 'linkedin_people', name: 'LinkedIn Professional Search', domain: 'people', read_rate_usd: 0.10, is_real: true,
       description: 'Find people and look up individuals by name, company and location.' },
-    { name: 'Clinical Trials (ClinicalTrials.gov)', domain: 'health', read_rate_usd: 0.02, is_real: true,
+    { catalog_id: 'clinical_trials', name: 'Clinical Trials (ClinicalTrials.gov)', domain: 'health', read_rate_usd: 0.02, is_real: true,
       description: 'Registered clinical trials by condition, sponsor or status — phase, enrollment and more.' },
-    { name: 'SEC Filings (EDGAR)', domain: 'finance', read_rate_usd: 0.03, is_real: true,
+    { catalog_id: 'sec_filings', name: 'SEC Filings (EDGAR)', domain: 'finance', read_rate_usd: 0.03, is_real: true,
       description: 'Full-text search of U.S. public-company SEC filings (10-K, 10-Q, 8-K, S-1).' },
-    { name: 'U.S. Federal Contracts & Grants (USAspending)', domain: 'government', read_rate_usd: 0.02, is_real: true,
+    { catalog_id: 'federal_contracts', name: 'U.S. Federal Contracts & Grants (USAspending)', domain: 'government', read_rate_usd: 0.02, is_real: true,
       description: 'Federal contracts and grants by keyword, recipient or agency.' },
-    { name: 'Academic Papers (OpenAlex)', domain: 'research', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'research_papers', name: 'Academic Papers (OpenAlex)', domain: 'research', read_rate_usd: 0.01, is_real: true,
       description: '250M+ scholarly works — title, authors, year, venue, citations and DOI.' },
-    { name: 'GitHub Repositories', domain: 'software', read_rate_usd: 0.01, is_real: true,
+    { catalog_id: 'github_repos', name: 'GitHub Repositories', domain: 'software', read_rate_usd: 0.01, is_real: true,
       description: 'Search public repos by keyword or language — stars, forks, license, topics.' }
   ];
 
@@ -67,12 +67,15 @@
     var badge = c.is_real
       ? '<span class="badge badge--live">live</span>'
       : '<span class="badge badge--test">TEST_ONLY</span>';
-    return '<article class="card catalog-card' + (c.is_real ? '' : ' catalog-card--test') + '">' +
+    var href = 'catalog.html?id=' + encodeURIComponent(c.catalog_id || '');
+    return '<a class="catalog-card-link" href="' + href + '">' +
+      '<article class="card catalog-card' + (c.is_real ? '' : ' catalog-card--test') + '">' +
       '<div class="catalog-card__head"><h3>' + esc(c.name) + '</h3>' + badge + '</div>' +
       '<span class="catalog-pill">' + prettyDomain(c.domain) + '</span>' +
       '<p>' + esc(c.description) + '</p>' +
-      '<div class="catalog-card__rate"><span>Read rate</span><strong>' + rateLabel(c.read_rate_usd) + '</strong></div>' +
-      '</article>';
+      '<div class="catalog-card__rate"><span>Read rate</span><strong>' + rateLabel(c.read_rate_usd) + '</strong>' +
+      '<span class="catalog-card__more">Details →</span></div>' +
+      '</article></a>';
   }
 
   function applyFilter() {

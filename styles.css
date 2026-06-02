@@ -247,6 +247,30 @@ a { color: inherit; text-decoration: none; }
 }
 .catalog-card__rate span { color: var(--muted); font-size: .85rem; }
 .catalog-card__rate strong { color: var(--ink); font-size: 1.05rem; font-weight: 700; }
+.catalog-card-link { display: block; text-decoration: none; color: inherit; height: 100%; }
+.catalog-card__more { flex-basis: 100%; margin-top: 8px; color: var(--blue-600); font-size: .82rem; font-weight: 600; }
+
+/* per-catalog detail page */
+.cat-head { margin-bottom: 16px; }
+.cat-head h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 12px 0 10px; }
+.cat-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.cat-meta .catalog-pill { margin: 0; }
+.cat-rate { font-weight: 700; color: var(--ink); }
+.cat-desc { color: var(--muted); font-size: 1.05rem; margin: 0 0 26px; }
+#catView .app-card { margin-bottom: 22px; }
+#catView .app-card h2 { font-size: 1.15rem; margin-bottom: 14px; }
+.cat-filters { display: flex; flex-direction: column; gap: 14px; }
+.cat-filter__head { display: flex; align-items: center; gap: 8px; }
+.cat-filter code { font-weight: 700; color: var(--blue-600); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.cat-filter .req { font-size: .66rem; font-weight: 700; color: #C2691A; background: #FFF1E6; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: .03em; }
+.cat-filter p { color: var(--muted); font-size: .9rem; margin-top: 3px; }
+.cat-samples { display: flex; flex-wrap: wrap; gap: 10px; }
+.cat-sample { background: var(--blue-50); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: .9rem; color: var(--ink); }
+.cat-steps { display: flex; flex-direction: column; gap: 16px; margin: 18px 0 22px; }
+.cat-step { display: flex; gap: 14px; align-items: flex-start; }
+.cat-step__n { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--blue-500); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .9rem; }
+.cat-step strong { display: block; }
+.cat-step p { color: var(--muted); font-size: .9rem; margin-top: 2px; }
 
 /* ---------- Account app ---------- */
 .app { min-height: 60vh; padding: 56px 0 80px; background: linear-gradient(180deg, var(--blue-50), #fff 60%); }
