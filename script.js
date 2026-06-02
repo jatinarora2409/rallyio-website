@@ -301,7 +301,31 @@
     { catalog_id: 'anime_genres', name: 'Anime Genres (Jikan)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
       description: 'The list of anime genres with how many anime fall under each.' },
     { catalog_id: 'trivia_categories', name: 'Trivia Categories (Open Trivia DB)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
-      description: 'The list of available trivia categories.' }
+      description: 'The list of available trivia categories.' },
+    { catalog_id: 'dnd_classes', name: 'D&D 5e Classes', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e character classes — hit die, saving throws, subclasses and spellcasting ability.' },
+    { catalog_id: 'dnd_races', name: 'D&D 5e Races', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e character races — speed, size, ability bonuses, languages and traits.' },
+    { catalog_id: 'dnd_equipment', name: 'D&D 5e Equipment', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e equipment — category, cost, weight and (for weapons) damage.' },
+    { catalog_id: 'dnd_magic_items', name: 'D&D 5e Magic Items', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e magic items — category, rarity and description.' },
+    { catalog_id: 'dnd_conditions', name: 'D&D 5e Conditions', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e conditions (poisoned, stunned, prone…) and what they do.' },
+    { catalog_id: 'pokemon_egg_groups', name: 'Pokémon Egg Groups (PokeAPI)', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: "A Pokémon egg group's member species — count and a sample list." },
+    { catalog_id: 'pokemon_generations', name: 'Pokémon Generations (PokeAPI)', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'A Pokémon game generation — main region and species/moves/types introduced.' },
+    { catalog_id: 'countries_by_demonym', name: 'Country by Demonym (REST Countries)', domain: 'geography', read_rate_usd: 0, is_real: true,
+      description: "Find the country for a demonym (e.g. 'Japanese') — country, capital, population, region." },
+    { catalog_id: 'crypto_global', name: 'Global Crypto Market (CoinGecko)', domain: 'crypto', read_rate_usd: 0, is_real: true,
+      description: 'Global crypto snapshot — total market cap, 24h volume, BTC/ETH dominance, coins, markets.' },
+    { catalog_id: 'tv_person_credits', name: 'Actor Filmography (TVmaze)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'The shows an actor has appeared in, with their character — show, character, year, genres.' },
+    { catalog_id: 'manga_genres', name: 'Manga Genres (Jikan)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'The list of manga genres with how many manga fall under each.' },
+    { catalog_id: 'random_anime', name: 'Random Anime (Jikan)', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'A random anime recommendation — title, type, episodes, score, year, status and synopsis.' }
   ];
 
   var list = document.getElementById('catalogList');
