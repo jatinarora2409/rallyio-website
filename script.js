@@ -375,7 +375,27 @@
     { catalog_id: 'volcanoes', name: 'Volcano Alerts (USGS)', domain: 'science', read_rate_usd: 0, is_real: true,
       description: 'U.S. volcanoes at an elevated alert level — observatory, alert level, color code and time.' },
     { catalog_id: 'country_flag', name: 'Country Flag & Facts by Code (REST Countries)', domain: 'geography', read_rate_usd: 0, is_real: true,
-      description: 'Look up a country by ISO code and get its flag image, capital, population and region.' }
+      description: 'Look up a country by ISO code and get its flag image, capital, population and region.' },
+    { catalog_id: 'tobacco_reports', name: 'Tobacco Product Safety Reports (openFDA)', domain: 'health', read_rate_usd: 0, is_real: true,
+      description: 'Reports of problems with tobacco/vaping products — products, health & product problems, date.' },
+    { catalog_id: 'flood_forecast', name: 'River Discharge / Flood Forecast (Open-Meteo)', domain: 'environment', read_rate_usd: 0, is_real: true,
+      description: 'Daily river-discharge forecast (a flood indicator) for any place by name.' },
+    { catalog_id: 'journals', name: 'Academic Journals (OpenAlex Sources)', domain: 'research', read_rate_usd: 0, is_real: true,
+      description: 'Search academic journals — name, type, publisher, works count, citations and ISSN.' },
+    { catalog_id: 'research_funders', name: 'Research Funders (OpenAlex)', domain: 'research', read_rate_usd: 0, is_real: true,
+      description: 'Search research funding organizations — country, grants, works funded and a description.' },
+    { catalog_id: 'publishers', name: 'Academic Publishers (OpenAlex)', domain: 'research', read_rate_usd: 0, is_real: true,
+      description: 'Search academic publishers — country, number of works and sources they publish.' },
+    { catalog_id: 'sports_leagues', name: 'Sports Leagues (TheSportsDB)', domain: 'sports', read_rate_usd: 0, is_real: true,
+      description: 'The list of sports leagues — league name and sport; optionally filter by sport.' },
+    { catalog_id: 'athletes', name: 'Athletes / Players (TheSportsDB)', domain: 'sports', read_rate_usd: 0, is_real: true,
+      description: 'Search athletes by name — team, sport, nationality, position, birth date and a short bio.' },
+    { catalog_id: 'long_weekends', name: 'Long Weekends (Nager.Date)', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'Long weekends for a country and year — start/end dates, length and any bridge day.' },
+    { catalog_id: 'next_holidays', name: 'Upcoming Public Holidays (Nager.Date)', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'The next upcoming public holidays for a country — date, name and whether nationwide.' },
+    { catalog_id: 'pokedex_entries', name: 'Pokédex Entries (PokeAPI)', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'The Pokémon listed in a regional Pokédex, with their entry numbers.' }
   ];
 
   var list = document.getElementById('catalogList');
