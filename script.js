@@ -37,7 +37,19 @@
     { catalog_id: 'research_papers', name: 'Academic Papers (OpenAlex)', domain: 'research', read_rate_usd: 0.01, is_real: true,
       description: '250M+ scholarly works — title, authors, year, venue, citations and DOI.' },
     { catalog_id: 'github_repos', name: 'GitHub Repositories', domain: 'software', read_rate_usd: 0.01, is_real: true,
-      description: 'Search public repos by keyword or language — stars, forks, license, topics.' }
+      description: 'Search public repos by keyword or language — stars, forks, license, topics.' },
+    { catalog_id: 'movies_tv', name: 'Movies & TV Shows (TVmaze)', domain: 'entertainment', read_rate_usd: 0.01, is_real: true,
+      description: 'Search TV shows — genres, network, premiere, rating, status and summary.' },
+    { catalog_id: 'food_products', name: 'Food Products (Open Food Facts)', domain: 'food', read_rate_usd: 0.01, is_real: true,
+      description: 'Packaged food & drink — brand, categories, Nutri-Score, NOVA group, ingredients.' },
+    { catalog_id: 'recipes', name: 'Recipes (TheMealDB)', domain: 'food', read_rate_usd: 0.01, is_real: true,
+      description: 'Recipes by dish — category, cuisine, ingredients, instructions and a photo.' },
+    { catalog_id: 'books', name: 'Books (Open Library)', domain: 'books', read_rate_usd: 0.01, is_real: true,
+      description: 'Books — title, author(s), first publication year, editions and subjects.' },
+    { catalog_id: 'countries', name: 'Countries (REST Countries)', domain: 'geography', read_rate_usd: 0.01, is_real: true,
+      description: 'Country facts — capital, population, region, languages and currencies.' },
+    { catalog_id: 'crypto', name: 'Crypto Markets (CoinGecko)', domain: 'crypto', read_rate_usd: 0.01, is_real: true,
+      description: 'Live crypto market data — price, market cap, rank and 24h change.' }
   ];
 
   var list = document.getElementById('catalogList');
