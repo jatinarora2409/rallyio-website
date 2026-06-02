@@ -351,7 +351,31 @@
     { catalog_id: 'stackoverflow_tags', name: 'Popular Stack Overflow Tags', domain: 'technology', read_rate_usd: 0, is_real: true,
       description: 'The most-used Stack Overflow tags and how many questions use each.' },
     { catalog_id: 'pokemon_region', name: 'Pokémon Regions (PokeAPI)', domain: 'gaming', read_rate_usd: 0, is_real: true,
-      description: 'A Pokémon region — main generation, locations, pokédexes and version groups.' }
+      description: 'A Pokémon region — main generation, locations, pokédexes and version groups.' },
+    { catalog_id: 'dnd_alignments', name: 'D&D 5e Alignments', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'The nine D&D 5e moral alignments (Lawful Good … Chaotic Evil) and what each means.' },
+    { catalog_id: 'dnd_ability_scores', name: 'D&D 5e Ability Scores', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'The six D&D 5e ability scores — what each governs and its associated skills.' },
+    { catalog_id: 'dnd_proficiencies', name: 'D&D 5e Proficiencies', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e proficiencies (skills, tools, weapons, armor) — type and which classes/races grant them.' },
+    { catalog_id: 'dnd_features', name: 'D&D 5e Class Features', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e class features — the class, level gained and what the feature does.' },
+    { catalog_id: 'dnd_subclasses', name: 'D&D 5e Subclasses', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'D&D 5e subclasses — their parent class, flavor name and description.' },
+    { catalog_id: 'wikipedia_summary', name: 'Wikipedia Summary', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'A concise summary of a Wikipedia article by title — description, extract, thumbnail, link.' },
+    { catalog_id: 'wikipedia_random', name: 'Random Wikipedia Article', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'A random Wikipedia article with its summary — title, description, extract and a link.' },
+    { catalog_id: 'countries_by_translation', name: 'Country by Foreign Name (REST Countries)', domain: 'geography', read_rate_usd: 0, is_real: true,
+      description: "Find a country by its name in another language (e.g. 'Alemania' → Germany)." },
+    { catalog_id: 'crypto_derivatives', name: 'Crypto Derivatives (CoinGecko)', domain: 'crypto', read_rate_usd: 0, is_real: true,
+      description: 'Active crypto derivatives (perpetuals/futures) — market, symbol, price, 24h change, volume.' },
+    { catalog_id: 'places_nearby', name: 'Notable Places Nearby (Wikipedia)', domain: 'geography', read_rate_usd: 0, is_real: true,
+      description: 'Notable landmarks and places near a location, by distance, each with a Wikipedia link.' },
+    { catalog_id: 'volcanoes', name: 'Volcano Alerts (USGS)', domain: 'science', read_rate_usd: 0, is_real: true,
+      description: 'U.S. volcanoes at an elevated alert level — observatory, alert level, color code and time.' },
+    { catalog_id: 'country_flag', name: 'Country Flag & Facts by Code (REST Countries)', domain: 'geography', read_rate_usd: 0, is_real: true,
+      description: 'Look up a country by ISO code and get its flag image, capital, population and region.' }
   ];
 
   var list = document.getElementById('catalogList');
