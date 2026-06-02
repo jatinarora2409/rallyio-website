@@ -59,32 +59,46 @@
     return esc(String(d || '—').replace(/_/g, ' '));
   }
 
-  function render(catalogs, live) {
-    list.innerHTML = '';
-    catalogs.forEach(function (c) {
-      var badge = c.is_real
-        ? '<span class="badge badge--live">live</span>'
-        : '<span class="badge badge--test">TEST_ONLY</span>';
-      var card = document.createElement('article');
-      card.className = 'card catalog-card' + (c.is_real ? '' : ' catalog-card--test');
-      card.innerHTML =
-        '<div class="catalog-card__head"><h3>' + esc(c.name) + '</h3>' + badge + '</div>' +
-        '<span class="catalog-pill">' + prettyDomain(c.domain) + '</span>' +
-        '<p>' + esc(c.description) + '</p>' +
-        '<div class="catalog-card__rate"><span>Read rate</span><strong>' + rateLabel(c.read_rate_usd) + '</strong></div>';
-      list.appendChild(card);
-    });
-    if (note) note.textContent = live ? '' : 'Showing the latest known catalogs.';
+  var search = document.getElementById('catalogSearch');
+  var allCatalogs = [];
+  var isLive = true;
+
+  function cardHtml(c) {
+    var badge = c.is_real
+      ? '<span class="badge badge--live">live</span>'
+      : '<span class="badge badge--test">TEST_ONLY</span>';
+    return '<article class="card catalog-card' + (c.is_real ? '' : ' catalog-card--test') + '">' +
+      '<div class="catalog-card__head"><h3>' + esc(c.name) + '</h3>' + badge + '</div>' +
+      '<span class="catalog-pill">' + prettyDomain(c.domain) + '</span>' +
+      '<p>' + esc(c.description) + '</p>' +
+      '<div class="catalog-card__rate"><span>Read rate</span><strong>' + rateLabel(c.read_rate_usd) + '</strong></div>' +
+      '</article>';
   }
+
+  function applyFilter() {
+    var q = ((search && search.value) || '').trim().toLowerCase();
+    var filtered = !q ? allCatalogs : allCatalogs.filter(function (c) {
+      return (String(c.name || '') + ' ' + String(c.domain || '') + ' ' + String(c.description || ''))
+        .toLowerCase().indexOf(q) !== -1;
+    });
+    list.innerHTML = filtered.length
+      ? filtered.map(cardHtml).join('')
+      : '<p class="catalog-loading">No catalogs match “' + esc(q) + '”.</p>';
+    if (note) note.textContent = isLive ? '' : 'Showing the latest known catalogs.';
+  }
+
+  function load(catalogs, live) { allCatalogs = catalogs; isLive = live; applyFilter(); }
+
+  if (search) search.addEventListener('input', applyFilter);
 
   fetch(CATALOGS_API, { mode: 'cors' })
     .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
     .then(function (data) {
       var cats = (data && data.catalogs) || [];
       if (!cats.length) throw new Error('empty');
-      render(cats, true);
+      load(cats, true);
     })
-    .catch(function () { render(FALLBACK, false); });
+    .catch(function () { load(FALLBACK, false); });
 })();
 
 // Reflect signed-in state in the nav (so "Sign in" becomes "Dashboard" when logged in).

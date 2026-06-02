@@ -130,6 +130,13 @@
         </p>
       </div>
 
+      <div class="catalog-search-wrap">
+        <svg class="catalog-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="catalogSearch" class="catalog-search" type="search" autocomplete="off"
+               placeholder="Search catalogs — e.g. “clinical”, “patents”, “github”, “finance”…"
+               aria-label="Search catalogs" />
+      </div>
+
       <div id="catalogList" class="cards cards--3" aria-live="polite">
         <!-- Populated by script.js from the live /catalogs API, with a built-in fallback. -->
         <p id="catalogLoading" class="catalog-loading">Loading catalogs…</p>
