@@ -48,8 +48,8 @@
         explore real datasets for free and read exactly the records you need. Pay as you go, no subscription.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="#catalogs">Explore catalogs</a>
-        <a class="btn btn--ghost" href="#providers">List your data →</a>
+        <a class="btn btn--primary" href="#connect-claude">Add to Claude →</a>
+        <a class="btn btn--ghost" href="#catalogs">Explore catalogs</a>
       </div>
       <p class="hero__note">Browse free. Sign in with Google for $5 of credits — then pay as you go.</p>
 
@@ -145,8 +145,33 @@
     </div>
   </section>
 
+  <!-- ===== Connect to Claude ===== -->
+  <section class="section" id="connect-claude">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Use it in Claude</span>
+        <h2>Add rallyio to Claude in a minute.</h2>
+        <p class="section__lead">Connect once, sign in with Google, and ask Claude to search any catalog —
+           billed to your account, with $5 free to start.</p>
+      </div>
+      <div class="connect-block">
+        <div class="connect-url">
+          <code id="homeConnectUrl">https://rallyio-hfr-bmurezb4na-uc.a.run.app/connect/mcp</code>
+          <button id="copyHomeConnect" class="btn btn--ghost btn--sm">Copy</button>
+        </div>
+        <div class="cat-steps">
+          <div class="cat-step"><span class="cat-step__n">1</span><div><strong>Open Claude → Settings → Connectors</strong><p>On a Pro, Max, Team or Enterprise plan.</p></div></div>
+          <div class="cat-step"><span class="cat-step__n">2</span><div><strong>Add custom connector</strong><p>Click “Add custom connector” and paste the URL above.</p></div></div>
+          <div class="cat-step"><span class="cat-step__n">3</span><div><strong>Sign in with Google</strong><p>Authorize rallyio — your account starts with $5 free credits.</p></div></div>
+          <div class="cat-step"><span class="cat-step__n">4</span><div><strong>Ask for data</strong><p>e.g. “find recruiting diabetes trials”, “top AI papers this year”, “SEC 10-Ks mentioning AI risk”.</p></div></div>
+        </div>
+        <a class="btn btn--primary" href="https://claude.ai/settings/connectors?modal=add-custom-connector" target="_blank" rel="noopener">Add to Claude →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== For businesses ===== -->
-  <section class="section" id="providers">
+  <section class="section section--tint" id="providers">
     <div class="container split">
       <div class="split__text">
         <span class="eyebrow">For businesses</span>

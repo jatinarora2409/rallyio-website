@@ -124,3 +124,15 @@
   if (greeting) { greeting.textContent = 'Hi, ' + first; greeting.hidden = false; }
   if (cta) cta.textContent = 'Dashboard';
 })();
+
+// Home "Connect to Claude" copy button.
+(function () {
+  var b = document.getElementById('copyHomeConnect');
+  if (!b) return;
+  b.addEventListener('click', function () {
+    var v = document.getElementById('homeConnectUrl').textContent.trim();
+    if (navigator.clipboard) navigator.clipboard.writeText(v);
+    this.textContent = 'Copied';
+    var s = this; setTimeout(function () { s.textContent = 'Copy'; }, 1500);
+  });
+})();
