@@ -27,19 +27,17 @@
   // / before the backend is up). Mirrors the live catalog line-up.
   var FALLBACK = [
     { name: 'LinkedIn Professional Search', domain: 'people', read_rate_usd: 0.10, is_real: true,
-      description: 'Keyword search for LinkedIn people by name, company and location.' },
-    { name: 'Restaurant Equipment Marketplace', domain: 'food_service', read_rate_usd: 0.01, is_real: false,
-      description: 'Listings of restaurant and commercial kitchen equipment for sale.' },
-    { name: 'Chicago Business Registry', domain: 'government', read_rate_usd: 0.05, is_real: false,
-      description: 'Registered businesses and licensing records for Chicago.' },
-    { name: 'Heavy Machinery Valuation Database', domain: 'construction', read_rate_usd: 0.01, is_real: false,
-      description: 'Valuations and depreciation for heavy construction machinery.' },
-    { name: 'Commercial Real Estate Listings', domain: 'real_estate', read_rate_usd: 0.01, is_real: false,
-      description: 'Commercial property listings and lease data.' },
-    { name: 'Legal & Compliance Records', domain: 'legal', read_rate_usd: 0.08, is_real: false,
-      description: 'Legal filings and compliance records for businesses.' },
-    { name: 'Logistics & Shipping Database', domain: 'logistics', read_rate_usd: 0.01, is_real: false,
-      description: 'Carriers, routes and shipping records.' }
+      description: 'Find people and look up individuals by name, company and location.' },
+    { name: 'Clinical Trials (ClinicalTrials.gov)', domain: 'health', read_rate_usd: 0.02, is_real: true,
+      description: 'Registered clinical trials by condition, sponsor or status — phase, enrollment and more.' },
+    { name: 'SEC Filings (EDGAR)', domain: 'finance', read_rate_usd: 0.03, is_real: true,
+      description: 'Full-text search of U.S. public-company SEC filings (10-K, 10-Q, 8-K, S-1).' },
+    { name: 'U.S. Federal Contracts & Grants (USAspending)', domain: 'government', read_rate_usd: 0.02, is_real: true,
+      description: 'Federal contracts and grants by keyword, recipient or agency.' },
+    { name: 'Academic Papers (OpenAlex)', domain: 'research', read_rate_usd: 0.01, is_real: true,
+      description: '250M+ scholarly works — title, authors, year, venue, citations and DOI.' },
+    { name: 'GitHub Repositories', domain: 'software', read_rate_usd: 0.01, is_real: true,
+      description: 'Search public repos by keyword or language — stars, forks, license, topics.' }
   ];
 
   var list = document.getElementById('catalogList');
