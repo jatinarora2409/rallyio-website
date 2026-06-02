@@ -46,6 +46,7 @@
     if (d.payments_enabled) $('buyBox').hidden = false;
     show('dashboard');
     loadUsage();
+    loadCatalogPrefs();
 
     var params = new URLSearchParams(window.location.search);
     if (params.get('paid')) {
@@ -100,6 +101,78 @@
           '</div>';
       }).join('');
   }
+
+  // ---- Catalog preferences (per-account enable/disable) ----
+  var catPrefs = { cats: [] };
+
+  function loadCatalogPrefs() {
+    var box = $('catalogPrefs'); if (!box) return;
+    box.innerHTML = '<p class="usage-empty">Loading…</p>';
+    api('/me/catalogs').then(function (d) {
+      catPrefs.cats = d.catalogs || [];
+      renderCatalogPrefs();
+    }).catch(function (e) {
+      if (e.message !== 'unauthorized') box.innerHTML = '<p class="usage-empty">Couldn\'t load catalogs.</p>';
+    });
+  }
+
+  function disabledList() {
+    return catPrefs.cats.filter(function (c) { return !c.enabled; }).map(function (c) { return c.catalog_id; });
+  }
+
+  function renderCatalogPrefs() {
+    var box = $('catalogPrefs'); if (!box) return;
+    var q = (($('catPrefsSearch') || {}).value || '').trim().toLowerCase();
+    var enabled = catPrefs.cats.filter(function (c) { return c.enabled; }).length;
+    if ($('catPrefsCount')) $('catPrefsCount').textContent = enabled + ' of ' + catPrefs.cats.length + ' enabled';
+    var list = catPrefs.cats.filter(function (c) {
+      return !q || (String(c.name) + ' ' + c.catalog_id + ' ' + (c.domain || '')).toLowerCase().indexOf(q) !== -1;
+    });
+    if (!list.length) { box.innerHTML = '<p class="usage-empty">No catalogs match.</p>'; return; }
+    box.innerHTML = list.map(function (c) {
+      var paid = Number(c.read_rate_usd) > 0;
+      var meta = esc(String(c.domain || '').replace(/_/g, ' ')) + (paid ? ' · $' + (c.read_rate_usd * 1000) + ' / 1k reads' : ' · free');
+      return '<label class="cat-pref">' +
+        '<span class="cat-pref__info"><strong>' + esc(c.name) + '</strong>' +
+        '<span class="cat-pref__meta">' + meta + '</span></span>' +
+        '<input type="checkbox" class="cat-pref__toggle" data-id="' + esc(c.catalog_id) + '"' +
+        (c.enabled ? ' checked' : '') + ' /></label>';
+    }).join('');
+  }
+
+  function setCatById(id, enabled) {
+    for (var i = 0; i < catPrefs.cats.length; i++) {
+      if (catPrefs.cats[i].catalog_id === id) { catPrefs.cats[i].enabled = enabled; return; }
+    }
+  }
+
+  function saveCatalogPrefs() {
+    api('/me/catalogs', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ disabled: disabledList() })
+    }).catch(function () {});
+  }
+
+  var prefsBox = $('catalogPrefs');
+  if (prefsBox) {
+    prefsBox.addEventListener('change', function (e) {
+      var t = e.target;
+      if (!t.classList || !t.classList.contains('cat-pref__toggle')) return;
+      setCatById(t.getAttribute('data-id'), t.checked);
+      if ($('catPrefsCount')) {
+        var enabled = catPrefs.cats.filter(function (c) { return c.enabled; }).length;
+        $('catPrefsCount').textContent = enabled + ' of ' + catPrefs.cats.length + ' enabled';
+      }
+      saveCatalogPrefs();
+    });
+  }
+  if ($('catPrefsSearch')) $('catPrefsSearch').addEventListener('input', renderCatalogPrefs);
+  if ($('catPrefsAll')) $('catPrefsAll').addEventListener('click', function () {
+    catPrefs.cats.forEach(function (c) { c.enabled = true; }); saveCatalogPrefs(); renderCatalogPrefs();
+  });
+  if ($('catPrefsNone')) $('catPrefsNone').addEventListener('click', function () {
+    catPrefs.cats.forEach(function (c) { c.enabled = false; }); saveCatalogPrefs(); renderCatalogPrefs();
+  });
 
   // ---- Auth ----
   function onCredential(resp) {

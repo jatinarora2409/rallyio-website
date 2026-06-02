@@ -97,6 +97,23 @@
           </div>
           <div id="usageList" class="usage-list"></div>
         </div>
+
+        <div class="app-card app-catalogs">
+          <div class="app-usage__head">
+            <h2>Your catalogs</h2>
+            <span id="catPrefsCount" class="app-catalogs__count"></span>
+          </div>
+          <p class="app-catalogs__lead">Choose which catalogs Claude can see and read on your account.
+             Everything is on by default — turn off any you don't want. Changes apply to your next
+             search in Claude.</p>
+          <div class="app-catalogs__bar">
+            <input id="catPrefsSearch" class="catalog-search" type="search" autocomplete="off"
+                   placeholder="Filter catalogs…" aria-label="Filter your catalogs" />
+            <button id="catPrefsAll" class="btn btn--ghost btn--sm">Enable all</button>
+            <button id="catPrefsNone" class="btn btn--ghost btn--sm">Disable all</button>
+          </div>
+          <div id="catalogPrefs" class="cat-prefs"></div>
+        </div>
       </section>
 
     </div>
