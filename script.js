@@ -149,7 +149,31 @@
     { catalog_id: 'name_predictions', name: 'Name Predictions (gender / age / nationality)', domain: 'data', read_rate_usd: 0, is_real: true,
       description: 'Predict likely gender, age and nationality for a first name, with probabilities.' },
     { catalog_id: 'quotes', name: 'Inspirational Quotes (ZenQuotes)', domain: 'reference', read_rate_usd: 0, is_real: true,
-      description: 'A selection of inspirational quotes with their authors.' }
+      description: 'A selection of inspirational quotes with their authors.' },
+    { catalog_id: 'free_games', name: 'Free-to-Play Games (FreeToGame)', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'Browse free-to-play PC & browser games — title, genre, platform, publisher and link.' },
+    { catalog_id: 'game_deals', name: 'PC Game Deals (CheapShark)', domain: 'gaming', read_rate_usd: 0, is_real: true,
+      description: 'Discounted PC game deals — title, sale price, normal price, savings and a link.' },
+    { catalog_id: 'wikidata', name: 'Wikidata Entities', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'Search Wikidata for entities — label, description, entity id and a link.' },
+    { catalog_id: 'inaturalist', name: 'Wildlife Taxa (iNaturalist)', domain: 'science', read_rate_usd: 0, is_real: true,
+      description: 'Search plants & animals — scientific & common name, rank, observations, photo, wiki.' },
+    { catalog_id: 'music_artists', name: 'Music Artists (TheAudioDB)', domain: 'media', read_rate_usd: 0, is_real: true,
+      description: 'Look up artists & bands — genre, style, year formed, country, label and biography.' },
+    { catalog_id: 'fx_history', name: 'Historical Exchange Rates (Frankfurter / ECB)', domain: 'finance', read_rate_usd: 0, is_real: true,
+      description: 'Daily historical FX of one currency vs another over a recent window — date and rate.' },
+    { catalog_id: 'xkcd', name: 'xkcd Comics', domain: 'entertainment', read_rate_usd: 0, is_real: true,
+      description: 'xkcd webcomics — number, title, alt-text, image and date. By number or the latest.' },
+    { catalog_id: 'book_subjects', name: 'Books by Subject (Open Library)', domain: 'books', read_rate_usd: 0, is_real: true,
+      description: 'Browse popular books in a subject/genre — title, author(s), year and edition count.' },
+    { catalog_id: 'sunrise_sunset', name: 'Sunrise & Sunset Times', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'Sunrise, sunset, solar noon and day length for any place by name.' },
+    { catalog_id: 'rocket_launches', name: 'Upcoming Rocket Launches (Launch Library)', domain: 'space', read_rate_usd: 0, is_real: true,
+      description: 'Upcoming orbital launches from all providers — mission, date, status, rocket and pad.' },
+    { catalog_id: 'jisho', name: 'Japanese Dictionary (Jisho)', domain: 'language', read_rate_usd: 0, is_real: true,
+      description: 'Look up Japanese words — kanji/kana, reading, English meanings, part of speech, JLPT.' },
+    { catalog_id: 'school_holidays', name: 'School Holidays (OpenHolidays)', domain: 'reference', read_rate_usd: 0, is_real: true,
+      description: 'School holiday periods for a country and year — name, start/end dates and scope.' }
   ];
 
   var list = document.getElementById('catalogList');
