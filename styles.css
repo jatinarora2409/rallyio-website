@@ -269,10 +269,10 @@ a { color: inherit; text-decoration: none; }
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
   border-top: 1px solid var(--line); padding-top: 14px; margin-top: auto;
 }
-.catalog-card__rate span { color: var(--muted); font-size: .85rem; }
+.catalog-card__rate > span:first-child { color: var(--muted); font-size: .85rem; }
 .catalog-card__rate strong { color: var(--ink); font-size: 1.05rem; font-weight: 700; }
 .catalog-card-link { display: block; text-decoration: none; color: inherit; height: 100%; }
-.catalog-card__more { flex-basis: 100%; margin-top: 8px; color: var(--blue-600); font-size: .82rem; font-weight: 600; }
+.catalog-card__more { flex: 0 0 100%; margin-top: 8px; color: var(--blue-600); font-size: .82rem; font-weight: 600; }
 
 /* per-catalog detail page */
 .cat-head { margin-bottom: 16px; }
